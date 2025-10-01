@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://m7gbndc4ljw5"]
+[gd_scene load_steps=4 format=3 uid="uid://m7gbndc4ljw5"]
 
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_r2uep"]
+[ext_resource type="PackedScene" uid="uid://dqmrmkf0k8wgw" path="res://ui.tscn" id="2_tjf8n"]
+[ext_resource type="PackedScene" uid="uid://cnstugsadrjtr" path="res://options_menu.tscn" id="3_3ticj"]
 
 [node name="GameMain" type="Node2D"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 [node name="Level" parent="." instance=ExtResource("1_r2uep")]
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="GameUI" instance=ExtResource("2_tjf8n")]
+
+[node name="OptionsMenu" parent="." instance=ExtResource("3_3ticj")]
+process_mode = 3
+visible = false
