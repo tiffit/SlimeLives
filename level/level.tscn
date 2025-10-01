@@ -1,22 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgm53ymxlq3vc"]
+[gd_scene load_steps=2 format=3 uid="uid://cgm53ymxlq3vc"]
 
 [ext_resource type="Script" uid="uid://13imokkm63o5" path="res://level/level.gd" id="1_qohg2"]
-[ext_resource type="PackedScene" uid="uid://voxgl40mko7a" path="res://platforms/platform.tscn" id="2_qohg2"]
-[ext_resource type="PackedScene" uid="uid://c5gxdv8qm44mq" path="res://character/character.tscn" id="3_vkbyq"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_qohg2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-
-[node name="Platform" parent="." instance=ExtResource("2_qohg2")]
-position = Vector2(208, 431)
-
-[node name="Character" parent="." instance=ExtResource("3_vkbyq")]
-position = Vector2(199, 288)
-
-[node name="Platform2" parent="." instance=ExtResource("2_qohg2")]
-position = Vector2(328, 412)
-
-[node name="Platform3" parent="." instance=ExtResource("2_qohg2")]
-position = Vector2(440, 385)
