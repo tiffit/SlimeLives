@@ -9,4 +9,8 @@ func _ready() -> void:
 
 func _on_player_entered(body: Node2D) -> void:
 	if body is Character:
+		body.process_mode = PROCESS_MODE_DISABLED
+		var tweener: MethodTweener = game_main.current_level.play_circle(true)
+		if tweener:
+			await tweener.finished
 		game_main.load_next_level()

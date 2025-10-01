@@ -7,11 +7,15 @@ const tile_size: int = 16
 var camera: Camera2D
 var character: Character = null
 var level_bounds: Rect2 = Rect2()
+var circle_transition: CircleTransition
 
 func _ready() -> void:
 	level_bounds = Rect2(0, 0, level_width*tile_size, level_height*tile_size)
 	camera = get_node("Camera2D")
-	respawn_character()
+	circle_transition = get_node("../GameUI/circle_transition")
+	respawn_character(false)
+	move_camera()
+	play_circle(false)
 
 func _process(delta: float) -> void:
 	if character != null:
@@ -20,6 +24,12 @@ func _process(delta: float) -> void:
 			respawn_character()
 	
 	# Camera movement
+	move_camera()
+
+	if Engine.is_editor_hint():
+		queue_redraw()
+
+func move_camera():
 	if camera:
 		var viewport: Rect2 = camera.get_viewport_rect()
 		if character:
@@ -37,15 +47,22 @@ func _process(delta: float) -> void:
 				if (camera.position.x - viewport.size.x/2) < level_bounds.position.x:
 					camera.position.x = level_bounds.position.x + viewport.size.x/2
 
-	if Engine.is_editor_hint():
-		queue_redraw()
-
-func respawn_character():
+func respawn_character(play_anim: bool = true):
 	for child in get_children():
 		if child is SpawnPoint:
 			character = child.spawn_character()
+			if play_anim:
+				play_circle(false)
 			break
 	
+func play_circle(close: bool) -> MethodTweener:
+	if circle_transition:
+		var pos_x = character.position.x if character else 0
+		var pos_y = character.position.y if character else 0
+		var camera_offset_x = camera.get_viewport_rect().size.x/2 - camera.position.x
+		return circle_transition.play_circle(pos_x + camera_offset_x, pos_y, close)
+	return null
+		
 func _draw() -> void:
 	if Engine.is_editor_hint():
 		var debug_color: Color = Color8(255, 255, 255, 255)

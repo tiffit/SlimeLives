@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://m7gbndc4ljw5"]
+[gd_scene load_steps=7 format=3 uid="uid://m7gbndc4ljw5"]
 
-[ext_resource type="Script" path="res://game_main.gd" id="1_lbacn"]
+[ext_resource type="Script" uid="uid://dk4jl6v1yleau" path="res://game_main.gd" id="1_lbacn"]
 [ext_resource type="PackedScene" uid="uid://cogtyy15mq15c" path="res://level/instances/level_test.tscn" id="1_r2uep"]
-[ext_resource type="PackedScene" path="res://ui.tscn" id="2_tjf8n"]
-[ext_resource type="PackedScene" path="res://options_menu.tscn" id="3_3ticj"]
+[ext_resource type="PackedScene" uid="uid://dqmrmkf0k8wgw" path="res://ui.tscn" id="2_tjf8n"]
+[ext_resource type="PackedScene" uid="uid://cnstugsadrjtr" path="res://options_menu.tscn" id="3_3ticj"]
 [ext_resource type="PackedScene" uid="uid://vifd5y7ef55p" path="res://level/instances/level_test_big.tscn" id="3_hyuye"]
+[ext_resource type="PackedScene" uid="uid://ck3l1081gunhp" path="res://scene_transition.tscn" id="5_33xix"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_lbacn")
@@ -13,6 +14,8 @@ levels = Array[PackedScene]([ExtResource("1_r2uep"), ExtResource("3_hyuye")])
 [node name="GameUI" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="GameUI" instance=ExtResource("2_tjf8n")]
+
+[node name="circle_transition" parent="GameUI" instance=ExtResource("5_33xix")]
 
 [node name="OptionsMenu" parent="." instance=ExtResource("3_3ticj")]
 process_mode = 3
