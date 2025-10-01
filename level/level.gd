@@ -25,6 +25,11 @@ func _process(delta: float) -> void:
 		if character:
 			if viewport.size.y >= level_bounds.size.y:
 				camera.position.y = level_bounds.size.y / 2
+			else:
+				camera.position.y = character.position.y
+				if (camera.position.y - viewport.size.y/2) < level_bounds.position.y:
+					camera.position.y = level_bounds.position.y + viewport.size.y/2
+			
 			if viewport.size.x >= level_bounds.size.x:
 				camera.position.x = level_bounds.size.x / 2
 			else:
