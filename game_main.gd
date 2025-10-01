@@ -10,6 +10,11 @@ var current_level: Level = null
 func _ready() -> void:
 	load_next_level()
 	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset_level"):
+		level_index -= 1
+		load_next_level()
+
 func load_next_level():
 	if current_level:
 		current_level.queue_free()
