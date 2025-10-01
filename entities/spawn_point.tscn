@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d36mkbo8wp7b6"]
+
+[ext_resource type="Script" uid="uid://wdmqyw3xaq3k" path="res://entities/spawn_point.gd" id="1_nna5p"]
+[ext_resource type="PackedScene" uid="uid://c5gxdv8qm44mq" path="res://character/character.tscn" id="2_2eyup"]
+
+[node name="SpawnPoint" type="Node2D"]
+script = ExtResource("1_nna5p")
+characterScene = ExtResource("2_2eyup")
+metadata/_custom_type_script = "uid://wdmqyw3xaq3k"

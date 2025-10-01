@@ -4,6 +4,8 @@ class_name Character extends CharacterBody2D
 @export var jump_speed: float = 400.0
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+enum KillReason { ENTITY, TILE, BOUNDS }
+
 func _physics_process(delta: float) -> void:
 	# Gravity
 	velocity.y += gravity * delta
@@ -18,3 +20,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Do movement physics
 	move_and_slide()
+	
+func kill(reason: KillReason):
+	queue_free()
