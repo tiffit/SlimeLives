@@ -3,6 +3,8 @@ class_name Character extends CharacterBody2D
 @export var speed: float = 400.0
 @export var jump_speed: float = 400.0
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var level: Level
+var dead: bool = false
 
 enum KillReason { ENTITY, TILE, BOUNDS }
 
@@ -22,4 +24,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func kill(reason: KillReason):
+	dead = true
+	if level:
+		await level.play_circle(true).finished
 	queue_free()

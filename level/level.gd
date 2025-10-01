@@ -13,14 +13,12 @@ func _ready() -> void:
 	level_bounds = Rect2(0, 0, level_width*tile_size, level_height*tile_size)
 	camera = get_node("Camera2D")
 	circle_transition = get_node("../GameUI/circle_transition")
-	respawn_character(false)
-	move_camera()
-	play_circle(false)
+	respawn_character()
 
 func _process(delta: float) -> void:
-	if character != null:
+	if character != null and not character.dead:
 		if character.position.y > level_bounds.end.y + tile_size*2:
-			character.kill(Character.KillReason.BOUNDS)
+			await character.kill(Character.KillReason.BOUNDS)
 			respawn_character()
 	
 	# Camera movement
@@ -47,20 +45,21 @@ func move_camera():
 				if (camera.position.x - viewport.size.x/2) < level_bounds.position.x:
 					camera.position.x = level_bounds.position.x + viewport.size.x/2
 
-func respawn_character(play_anim: bool = true):
+func respawn_character():
 	for child in get_children():
 		if child is SpawnPoint:
-			character = child.spawn_character()
-			if play_anim:
-				play_circle(false)
+			character = child.spawn_character(self)
+			move_camera()
+			play_circle(false)
 			break
 	
 func play_circle(close: bool) -> MethodTweener:
 	if circle_transition:
-		var pos_x = character.position.x if character else 0
-		var pos_y = character.position.y if character else 0
-		var camera_offset_x = camera.get_viewport_rect().size.x/2 - camera.position.x
-		return circle_transition.play_circle(pos_x + camera_offset_x, pos_y, close)
+		var pos_x: float = character.position.x if character else 0
+		var pos_y: float = character.position.y if character else 0
+		var camera_offset_x: float = camera.get_viewport_rect().size.x/2 - camera.position.x
+		var camera_offset_y: float = camera.get_viewport_rect().size.y/2 - camera.position.y
+		return circle_transition.play_circle(pos_x + camera_offset_x, pos_y + camera_offset_y, close)
 	return null
 		
 func _draw() -> void:
