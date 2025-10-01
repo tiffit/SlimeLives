@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://vifd5y7ef55p"]
+
+[ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_dtyoc"]
+[ext_resource type="PackedScene" uid="uid://d36mkbo8wp7b6" path="res://entities/spawn_point.tscn" id="2_aenlh"]
+[ext_resource type="PackedScene" uid="uid://voxgl40mko7a" path="res://platforms/platform.tscn" id="3_dpoah"]
+[ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/end_point.tscn" id="4_jcic4"]
+
+[node name="LevelTest" instance=ExtResource("1_dtyoc")]
+level_width = 150
+
+[node name="SpawnPoint" parent="." index="1" instance=ExtResource("2_aenlh")]
+position = Vector2(107, 295)
+
+[node name="Platform" parent="." index="2" instance=ExtResource("3_dpoah")]
+position = Vector2(103, 418)
+
+[node name="Platform2" parent="." index="3" instance=ExtResource("3_dpoah")]
+position = Vector2(363, 356)
+
+[node name="Platform3" parent="." index="4" instance=ExtResource("3_dpoah")]
+position = Vector2(164, 122)
+
+[node name="Platform4" parent="." index="5" instance=ExtResource("3_dpoah")]
+position = Vector2(605, 353)
+
+[node name="Platform5" parent="." index="6" instance=ExtResource("3_dpoah")]
+position = Vector2(767, 275)
+
+[node name="Platform6" parent="." index="7" instance=ExtResource("3_dpoah")]
+position = Vector2(1013, 476)
+
+[node name="EndPoint" parent="." index="8" instance=ExtResource("4_jcic4")]
+position = Vector2(2026, 346)
+
+[node name="Platform7" parent="." index="9" instance=ExtResource("3_dpoah")]
+position = Vector2(1753, 412)
+
+[node name="Platform8" parent="." index="10" instance=ExtResource("3_dpoah")]
+position = Vector2(1494, 452)
+
+[node name="Platform9" parent="." index="11" instance=ExtResource("3_dpoah")]
+position = Vector2(1230, 478)

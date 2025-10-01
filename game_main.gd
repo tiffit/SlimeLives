@@ -1,1 +1,24 @@
-extends Node2D
+class_name GameMain extends Node2D
+
+@export var levels: Array[PackedScene] = [] 
+# If set, the level loaded will always be this level
+@export var force_level: PackedScene = null
+
+var level_index: int = -1
+var current_level: Level = null
+
+func _ready() -> void:
+	load_next_level()
+	
+func load_next_level():
+	if current_level:
+		current_level.queue_free()
+	level_index += 1
+	
+	if level_index >= levels.size():
+		level_index = 0
+		
+	var next_level_scene: PackedScene = force_level if force_level else levels[level_index]
+	current_level = next_level_scene.instantiate()
+	current_level.name = "Level"
+	add_child(current_level)

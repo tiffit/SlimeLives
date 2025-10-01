@@ -6,3 +6,5 @@
 script = ExtResource("1_qohg2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
