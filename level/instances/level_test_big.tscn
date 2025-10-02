@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/end_point.tscn" id="4_jcic4"]
 
 [node name="LevelTest" instance=ExtResource("1_dtyoc")]
+level_name = "0-2 A Big Test Level"
 level_width = 150
 
 [node name="SpawnPoint" parent="." index="1" instance=ExtResource("2_aenlh")]

@@ -16,7 +16,9 @@ func _process(delta: float) -> void:
 		load_next_level()
 
 func load_next_level():
+	var previous_level_name: String = ""
 	if current_level:
+		previous_level_name = current_level.level_name
 		current_level.queue_free()
 	level_index += 1
 	
@@ -27,3 +29,5 @@ func load_next_level():
 	current_level = next_level_scene.instantiate()
 	current_level.name = "Level"
 	add_child(current_level)
+	if current_level.level_name != previous_level_name:
+		$GameUI/UI.show_level_name(current_level.level_name)

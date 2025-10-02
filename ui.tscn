@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqmrmkf0k8wgw"]
+[gd_scene load_steps=4 format=3 uid="uid://dqmrmkf0k8wgw"]
 
 [ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://covnqteot2xrf" path="res://ui.gd" id="1_m6e0p"]
+
+[sub_resource type="Theme" id="Theme_m6e0p"]
+default_font_size = 50
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -37,5 +40,18 @@ texture = ExtResource("1_fyqef")
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "x9"
+
+[node name="LevelName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -84.0
+offset_right = 348.0
+offset_bottom = -15.0
+grow_vertical = 0
+theme = SubResource("Theme_m6e0p")
+text = "INSERT LEVEL NAME HERE"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
