@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://cogtyy15mq15c"]
+[gd_scene load_steps=5 format=4 uid="uid://cogtyy15mq15c"]
 
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_kghsb"]
 [ext_resource type="PackedScene" uid="uid://d36mkbo8wp7b6" path="res://entities/spawn_point.tscn" id="2_hdbnw"]
 [ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/end_point.tscn" id="4_0un70"]
-[ext_resource type="PackedScene" uid="uid://nvwbo6kcxs5j" path="res://softbody_demo.tscn" id="5_0un70"]
 [ext_resource type="PackedScene" path="res://entities/test_death_trap.tscn" id="5_eq5ka"]
 
 [node name="LevelTest2" instance=ExtResource("1_kghsb")]
@@ -36,6 +35,3 @@ position = Vector2(760, 599)
 
 [node name="TestDeathTrap9" parent="." index="8" instance=ExtResource("5_eq5ka")]
 position = Vector2(920, 599)
-
-[node name="softbody_demo" parent="." index="9" instance=ExtResource("5_0un70")]
-position = Vector2(129, 158)
