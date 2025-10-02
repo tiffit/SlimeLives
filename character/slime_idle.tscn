@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dikjvea3lgpow"]
+
+[ext_resource type="Texture2D" uid="uid://cnpchsfrxajoe" path="res://sprites/circle_particle.png" id="1_qhlje"]
+
+[sub_resource type="Curve" id="Curve_75fpp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.22262773, 0.49848711), 0.0, 0.0, 0, 0, Vector2(1, 0.19799137), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_77q0o"]
+curve = SubResource("Curve_75fpp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vihhi"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 30.0
+gravity = Vector3(0, 200, 0)
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_77q0o")
+color = Color(0.28627452, 0.45882353, 0.20392157, 0.5686275)
+hue_variation_min = -0.20000002
+hue_variation_max = 0.19999997
+
+[node name="SlimeIdle" type="GPUParticles2D"]
+show_behind_parent = true
+emitting = false
+texture = ExtResource("1_qhlje")
+process_material = SubResource("ParticleProcessMaterial_vihhi")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5gxdv8qm44mq"]
+[gd_scene load_steps=11 format=3 uid="uid://c5gxdv8qm44mq"]
 
 [ext_resource type="Script" uid="uid://cf7sweyu1ado0" path="res://character/character.gd" id="1_yf0e5"]
 [ext_resource type="PackedScene" uid="uid://voxgl40mko7a" path="res://platforms/platform.tscn" id="2_1l1n4"]
+[ext_resource type="PackedScene" uid="uid://dcqdrha0xmhky" path="res://character/slime_trail.tscn" id="3_ugqs2"]
+[ext_resource type="PackedScene" uid="uid://dikjvea3lgpow" path="res://character/slime_idle.tscn" id="4_hx151"]
 
 [sub_resource type="Gradient" id="Gradient_vu45j"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
@@ -113,3 +115,8 @@ shape = SubResource("RectangleShape2D_1l1n4")
 libraries = {
 &"": SubResource("AnimationLibrary_hx151")
 }
+
+[node name="SlimeTrail" parent="." instance=ExtResource("3_ugqs2")]
+position = Vector2(0, 22)
+
+[node name="SlimeIdle" parent="." instance=ExtResource("4_hx151")]

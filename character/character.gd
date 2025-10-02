@@ -3,6 +3,10 @@ class_name Character extends CharacterBody2D
 @export var speed: float = 400.0
 @export var jump_speed: float = 600.0
 @export var platform_scene: PackedScene
+
+@onready var slime_trail: GPUParticles2D = $SlimeTrail
+@onready var slime_idle: GPUParticles2D = $SlimeIdle
+
 const DEATH_PARTICLES = preload("uid://57xvg0lh3one")
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -12,11 +16,27 @@ var dead: bool = false
 enum KillReason { ENTITY, TILE, BOUNDS }
 
 func _physics_process(delta: float) -> void:
+	
+	if velocity.x != 0:
+		slime_idle.emitting = false
+		slime_trail.emitting = true
+	elif velocity.y != 0 and dead != true:
+		slime_idle.emitting = false
+		slime_trail.emitting = true
+	elif dead != true:
+		slime_idle.emitting = true
+		slime_trail.emitting = false
+	else:
+		slime_idle.emitting = false
+		slime_trail.emitting = false
+	
+
 	if dead:
 		return
 		
 	# Gravity
 	velocity.y += gravity * delta
+	
 	
 	# Horizontal movement
 	var horizontal: float = Input.get_axis("move_left", "move_right")
