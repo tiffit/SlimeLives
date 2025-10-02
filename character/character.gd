@@ -29,12 +29,16 @@ func _physics_process(delta: float) -> void:
 	# Do movement physics
 	move_and_slide()
 
-func kill_and_respawn(reason: KillReason):
+func kill_and_respawn(reason: KillReason) -> void:
+	if dead:
+		return
 	await kill(reason)
 	if level:
 		level.respawn_character()
 
 func kill(reason: KillReason):
+	if dead:
+		return
 	dead = true
 	if level:
 		if reason != KillReason.BOUNDS:
