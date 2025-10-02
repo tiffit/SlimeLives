@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqmrmkf0k8wgw"]
 
-[ext_resource type="Script" uid="uid://covnqteot2xrf" path="res://ui.gd" id="1_m6e0p"]
+[ext_resource type="Script" uid="uid://covnqteot2xrf" path="res://ui/ui.gd" id="1_m6e0p"]
 [ext_resource type="FontFile" uid="uid://dc7dxafyie71e" path="res://sprites/ComicRelief-Regular.ttf" id="2_27fn8"]
 [ext_resource type="PackedScene" uid="uid://kpkqihk2lgdb" path="res://heart_icon.tscn" id="3_27fn8"]
+[ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="1_fyqef"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
 bg_color = Color(0.18039216, 0.53333336, 0.38431373, 0.49019608)
@@ -15,8 +16,6 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
-[ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="1_fyqef"]
-[ext_resource type="Script" uid="uid://covnqteot2xrf" path="res://ui/ui.gd" id="1_m6e0p"]
 
 [sub_resource type="Theme" id="Theme_m6e0p"]
 default_font_size = 50
