@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://o30e61yppbfd"]
+
+[ext_resource type="Texture2D" uid="uid://cp5hr0haae4bh" path="res://sprites/twisted_forest_bg.png" id="2_fcoa4"]
+
+[node name="Parallax_BG" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(1152, 0)
+scale = Vector2(18, 20.25)
+texture = ExtResource("2_fcoa4")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 64)

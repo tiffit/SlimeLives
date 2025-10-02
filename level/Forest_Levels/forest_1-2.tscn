@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=4 uid="uid://chcfhjemsra56"]
+
+[ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_4dnnh"]
+[ext_resource type="PackedScene" uid="uid://o30e61yppbfd" path="res://level/Forest_Levels/parallax_bg.tscn" id="2_3wji3"]
+[ext_resource type="PackedScene" uid="uid://d36mkbo8wp7b6" path="res://entities/spawn_point.tscn" id="3_arc68"]
+[ext_resource type="PackedScene" path="res://entities/test_death_trap.tscn" id="4_uusfm"]
+[ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/end_point.tscn" id="5_rrbgt"]
+
+[node name="Level" instance=ExtResource("1_4dnnh")]
+level_name = "1-2 Slimy Steps"
+level_width = 144
+
+[node name="Parallax_BG" parent="." index="0" instance=ExtResource("2_3wji3")]
+
+[node name="TileMapLayer" parent="." index="1"]
+tile_map_data = PackedByteArray("AAASAAcAAgAFAAAAAAARAAcAAgAFAAAAAAAQAAcAAgAFAAAAAAAPAAcAAgAFAAAAAAAOAAcAAgAFAAAAAAANAAcAAgAFAAAAAAAMAAcAAgAFAAAAAAALAAcAAgAFAAAAAAAKAAcAAgAFAAAAAAAJAAcAAgAFAAAAAAAIAAcAAgAFAAAAAAAHAAcAAgAFAAAAAAAGAAcAAgAFAAAAAAAFAAcAAgAFAAAAAAAEAAcAAgAFAAAAAAADAAcAAgAFAAAAAAACAAcAAgAFAAAAAAABAAcAAgAFAAAAAAAAAAcAAgAEAAAAAAAaAAcAAgAFAAAAAAAZAAcAAgAFAAAAAAAYAAcAAgAFAAAAAAAXAAcAAgAFAAAAAAAWAAcAAgAFAAAAAAAVAAcAAgAFAAAAAAAUAAcAAgAFAAAAAAATAAcAAgAFAAAAAAAcAAcAAgAGAAAAAAAbAAcAAgAFAAAAAAA=")
+
+[node name="SpawnPoint" parent="." index="3" instance=ExtResource("3_arc68")]
+position = Vector2(102, 427)
+
+[node name="TestDeathTrap" parent="." index="4" instance=ExtResource("4_uusfm")]
+position = Vector2(484, 551)
+
+[node name="EndPoint" parent="." index="5" instance=ExtResource("5_rrbgt")]
+position = Vector2(2141, 476)

@@ -92,7 +92,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.13333334, 0.3, 0.5),
 "transitions": PackedFloat32Array(0.35355362, 0.6372803, 0.5176323, 0.6372803),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -40), Vector2(0, -35), Vector2(0, -50)]
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, -5), Vector2(0, -10)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hx151"]
@@ -114,17 +114,18 @@ script = ExtResource("1_yf0e5")
 platform_scene = ExtResource("2_1l1n4")
 
 [node name="Tail" type="RigidBody2D" parent="."]
+position = Vector2(-2, 0)
 collision_layer = 0
 collision_mask = 0
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Tail"]
 modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(-7, -1.9999983)
 scale = Vector2(5, 5)
 texture = ExtResource("3_dy06j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tail"]
+visible = false
 shape = SubResource("CircleShape2D_qkjfd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -133,6 +134,7 @@ scale = Vector2(5, 4.545)
 texture = ExtResource("3_0rvpn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2.5, 4.5)
 shape = SubResource("RectangleShape2D_o6jyn")
 
@@ -148,18 +150,18 @@ position = Vector2(0, 32)
 position = Vector2(0, 32)
 
 [node name="Ears" type="RigidBody2D" parent="."]
-position = Vector2(-2, -3)
 collision_layer = 0
 collision_mask = 0
 gravity_scale = -1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Ears"]
 modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(-3, -8)
+position = Vector2(0, -3)
 scale = Vector2(5, 2.769)
 texture = ExtResource("6_o6jyn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ears"]
+visible = false
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_tgjim")
 disabled = true
@@ -173,7 +175,6 @@ length = 6.0
 initial_offset = 5.0
 
 [node name="Paws" type="RigidBody2D" parent="."]
-position = Vector2(2, 0)
 collision_layer = 0
 collision_mask = 0
 mass = 0.1
@@ -182,11 +183,11 @@ lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Paws"]
 modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(3, 5)
 scale = Vector2(4, 4)
 texture = ExtResource("8_wy5t8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paws"]
+visible = false
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_dy06j")
 
@@ -198,15 +199,16 @@ gravity_scale = 0.1
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Face"]
-position = Vector2(-2, 5)
 scale = Vector2(4, 4)
 texture = ExtResource("7_tgjim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Face"]
+visible = false
 position = Vector2(3, 5)
 shape = SubResource("RectangleShape2D_tgjim")
 
 [node name="GrooveJoint2D2" type="GrooveJoint2D" parent="."]
+visible = false
 position = Vector2(10, -5)
 rotation = 0.17453292
 node_a = NodePath("..")
@@ -215,6 +217,7 @@ length = 10.0
 initial_offset = 5.0
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+visible = false
 position = Vector2(3, 5)
 rotation = 3.1415927
 node_a = NodePath("..")
@@ -224,6 +227,7 @@ stiffness = 0.1
 damping = 0.01
 
 [node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="."]
+visible = false
 position = Vector2(7, 7)
 rotation = 3.6651914
 node_a = NodePath("..")
@@ -233,6 +237,7 @@ stiffness = 0.1
 damping = 0.01
 
 [node name="GrooveJoint2D3" type="GrooveJoint2D" parent="."]
+visible = false
 position = Vector2(2, 0)
 rotation = 2.443461
 node_a = NodePath("..")
@@ -241,6 +246,7 @@ length = 5.0
 initial_offset = 5.0
 
 [node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="."]
+visible = false
 rotation = 2.443461
 node_a = NodePath("..")
 node_b = NodePath("../Paws")
