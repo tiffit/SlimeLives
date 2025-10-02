@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqmrmkf0k8wgw"]
 
 [ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="1_fyqef"]
-[ext_resource type="Script" uid="uid://covnqteot2xrf" path="res://ui.gd" id="1_m6e0p"]
+[ext_resource type="Script" uid="uid://covnqteot2xrf" path="res://ui/ui.gd" id="1_m6e0p"]
 
 [sub_resource type="Theme" id="Theme_m6e0p"]
 default_font_size = 50

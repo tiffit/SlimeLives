@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dk4jl6v1yleau" path="res://game_main.gd" id="1_lbacn"]
 [ext_resource type="PackedScene" uid="uid://cogtyy15mq15c" path="res://level/instances/level_test.tscn" id="1_r2uep"]
-[ext_resource type="PackedScene" uid="uid://dqmrmkf0k8wgw" path="res://ui.tscn" id="2_tjf8n"]
-[ext_resource type="PackedScene" uid="uid://cnstugsadrjtr" path="res://options_menu.tscn" id="3_3ticj"]
+[ext_resource type="PackedScene" uid="uid://dqmrmkf0k8wgw" path="res://ui/ui.tscn" id="2_tjf8n"]
+[ext_resource type="PackedScene" uid="uid://cnstugsadrjtr" path="res://ui/options_menu.tscn" id="3_3ticj"]
 [ext_resource type="PackedScene" uid="uid://vifd5y7ef55p" path="res://level/instances/level_test_big.tscn" id="3_hyuye"]
-[ext_resource type="PackedScene" uid="uid://ck3l1081gunhp" path="res://scene_transition.tscn" id="5_33xix"]
+[ext_resource type="PackedScene" uid="uid://ck3l1081gunhp" path="res://ui/scene_transition.tscn" id="5_33xix"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_lbacn")

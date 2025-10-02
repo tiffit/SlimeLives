@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnstugsadrjtr"]
 
-[ext_resource type="Script" uid="uid://ca8mfru5wny4c" path="res://options_menu.gd" id="1_lbr8e"]
-[ext_resource type="PackedScene" uid="uid://hkq3p3ox8ulx" path="res://volume_slider.tscn" id="2_t1lix"]
+[ext_resource type="Script" uid="uid://ca8mfru5wny4c" path="res://ui/options_menu.gd" id="1_lbr8e"]
+[ext_resource type="PackedScene" uid="uid://hkq3p3ox8ulx" path="res://ui/volume_slider.tscn" id="2_t1lix"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1lix"]
 bg_color = Color(0.33969232, 0.38377365, 0.17039084, 0.72156864)
