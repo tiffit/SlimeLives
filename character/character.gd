@@ -12,11 +12,11 @@ const DEATH_PARTICLES = preload("uid://57xvg0lh3one")
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var level: Level
 var dead: bool = false
+var item: Item = null
 
 enum KillReason { ENTITY, TILE, BOUNDS }
 
 func _physics_process(delta: float) -> void:
-	
 	if velocity.x != 0:
 		slime_idle.emitting = false
 		slime_trail.emitting = true
@@ -29,14 +29,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		slime_idle.emitting = false
 		slime_trail.emitting = false
-	
 
 	if dead:
 		return
 		
 	# Gravity
 	velocity.y += gravity * delta
-	
 	
 	# Horizontal movement
 	var horizontal: float = Input.get_axis("move_left", "move_right")
@@ -56,22 +54,32 @@ func kill_and_respawn(reason: KillReason) -> void:
 	if level:
 		level.respawn_character()
 
-func kill(reason: KillReason):
+func kill(reason: KillReason) -> void:
 	if dead:
 		return
 	dead = true
 	if level:
 		if reason != KillReason.BOUNDS:
-			if platform_scene:
-				$AnimationPlayer.play("death")
-				await $AnimationPlayer.animation_finished
-				var particles = DEATH_PARTICLES.instantiate()
-				particles.position = position + Vector2(0, -50)
-				level.call_deferred("add_child", particles)
-				var platform: Node2D = platform_scene.instantiate()
-				platform.position = position
-				platform.position += Vector2(0, -50)
-				level.call_deferred("add_child", platform)
-				
+			$AnimationPlayer.play("death")
+			await $AnimationPlayer.animation_finished
+			var particles = DEATH_PARTICLES.instantiate()
+			particles.position = position + Vector2(0, -50)
+			level.call_deferred("add_child", particles)
+			spawn_platform()
 		await level.play_circle(true).finished
 	queue_free()
+
+func spawn_platform():
+	var scene: PackedScene = item.platform if item else platform_scene
+	if scene:
+		var platform: Node2D = scene.instantiate()
+		platform.position = position
+		platform.position += Vector2(0, -50)
+		level.call_deferred("add_child", platform)
+
+func pickup_item(item: Item):
+	self.item = item
+	if item:
+		$ItemSprite.texture = item.texture
+	else:
+		$ItemSprite.texture = null

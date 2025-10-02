@@ -10,6 +10,7 @@
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_lbacn")
 levels = Array[PackedScene]([ExtResource("2_hyuye"), ExtResource("3_33xix")])
+force_level = ExtResource("3_33xix")
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://vifd5y7ef55p"]
+[gd_scene load_steps=5 format=3 uid="uid://vifd5y7ef55p"]
 
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_dtyoc"]
+[ext_resource type="PackedScene" uid="uid://d36mkbo8wp7b6" path="res://entities/spawn_point.tscn" id="3_4fxxg"]
 [ext_resource type="PackedScene" uid="uid://voxgl40mko7a" path="res://platforms/platform.tscn" id="3_dpoah"]
+[ext_resource type="PackedScene" uid="uid://b2fja44c1vsx7" path="res://entities/items/crucifix_item_entity.tscn" id="4_dtyoc"]
 
 [node name="LevelTest" instance=ExtResource("1_dtyoc")]
 level_name = "0-2 A Big Test Level"
@@ -34,8 +36,8 @@ position = Vector2(1494, 452)
 [node name="Platform9" parent="." index="9" instance=ExtResource("3_dpoah")]
 position = Vector2(1230, 478)
 
-[node name="SpawnPoint" parent="." index="11"]
-position = Vector2(101, 319)
+[node name="SpawnPoint" parent="." index="11" instance=ExtResource("3_4fxxg")]
+position = Vector2(95, 312)
 
-[node name="EndPoint" parent="." index="12"]
-position = Vector2(1904, 350)
+[node name="Crucifix ItemEntity" parent="." index="12" instance=ExtResource("4_dtyoc")]
+position = Vector2(356, 243)

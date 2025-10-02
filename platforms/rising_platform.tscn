@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://chg4vguq7bhvb"]
+
+[ext_resource type="Script" uid="uid://b1la0vajivmt0" path="res://platforms/rising_platform.gd" id="2_0urw1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of8b0"]
+size = Vector2(64, 64)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_of8b0"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfbwp"]
+size = Vector2(64, 4.5)
+
+[node name="RisingPlatform" type="AnimatableBody2D"]
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("2_0urw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_of8b0")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+texture = SubResource("PlaceholderTexture2D_of8b0")
+
+[node name="RisingDetectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RisingDetectArea"]
+position = Vector2(0, -33.75)
+shape = SubResource("RectangleShape2D_cfbwp")
+
+[connection signal="body_entered" from="RisingDetectArea" to="." method="_on_player_land"]
+[connection signal="body_exited" from="RisingDetectArea" to="." method="_on_player_leave"]

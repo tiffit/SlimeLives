@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ln7808dkfs4v"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://ln7808dkfs4v"]
 
 [ext_resource type="Script" uid="uid://bsdwt2vlrfkic" path="res://item/item.gd" id="1_e1bds"]
+[ext_resource type="PackedScene" uid="uid://chg4vguq7bhvb" path="res://platforms/rising_platform.tscn" id="1_hnhlo"]
 [ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="2_v7iyl"]
 
 [resource]
 script = ExtResource("1_e1bds")
-item_name = "Test Item"
+item_name = "Crucifix"
 texture = ExtResource("2_v7iyl")
+platform = ExtResource("1_hnhlo")
 metadata/_custom_type_script = "uid://bsdwt2vlrfkic"

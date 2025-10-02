@@ -51,6 +51,12 @@ reset_level={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Entity"
+2d_physics/layer_3="Tile"
+
 [physics]
 
 2d/default_gravity=1500.0
