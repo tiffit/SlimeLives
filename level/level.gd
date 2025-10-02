@@ -18,8 +18,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if character != null and not character.dead:
 		if character.position.y > level_bounds.end.y + tile_size*2:
-			await character.kill(Character.KillReason.BOUNDS)
-			respawn_character()
+			await character.kill_and_respawn(Character.KillReason.BOUNDS)
 	
 	# Camera movement
 	move_camera()
