@@ -1,8 +1,10 @@
 class_name Character extends CharacterBody2D
 
 @export var speed: float = 400.0
-@export var jump_speed: float = 400.0
+@export var jump_speed: float = 600.0
 @export var platform_scene: PackedScene
+const DEATH_PARTICLES = preload("uid://57xvg0lh3one")
+
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var level: Level
 var dead: bool = false
@@ -37,9 +39,15 @@ func kill(reason: KillReason):
 	if level:
 		if reason != KillReason.BOUNDS:
 			if platform_scene:
+				$AnimationPlayer.play("death")
+				await $AnimationPlayer.animation_finished
+				var particles = DEATH_PARTICLES.instantiate()
+				particles.position = position + Vector2(0, -50)
+				level.call_deferred("add_child", particles)
 				var platform: Node2D = platform_scene.instantiate()
 				platform.position = position
-				level.add_child(platform)
-			
+				platform.position += Vector2(0, -50)
+				level.call_deferred("add_child", platform)
+				
 		await level.play_circle(true).finished
 	queue_free()
