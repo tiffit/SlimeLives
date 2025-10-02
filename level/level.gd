@@ -12,9 +12,10 @@ var circle_transition: CircleTransition
 
 func _ready() -> void:
 	level_bounds = Rect2(0, 0, level_width*tile_size, level_height*tile_size)
-	camera = get_node("Camera2D")
-	circle_transition = get_node("../GameUI/circle_transition")
-	respawn_character()
+	if not Engine.is_editor_hint():
+		camera = get_node("Camera2D")
+		circle_transition = get_node("../GameUI/circle_transition")
+		respawn_character()
 
 func _process(delta: float) -> void:
 	if character != null and not character.dead:
