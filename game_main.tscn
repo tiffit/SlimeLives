@@ -1,15 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://m7gbndc4ljw5"]
+[gd_scene load_steps=6 format=3 uid="uid://m7gbndc4ljw5"]
 
 [ext_resource type="Script" uid="uid://dk4jl6v1yleau" path="res://game_main.gd" id="1_lbacn"]
-[ext_resource type="PackedScene" uid="uid://cogtyy15mq15c" path="res://level/instances/level_test.tscn" id="1_r2uep"]
+[ext_resource type="PackedScene" uid="uid://bgkjqy312t6v2" path="res://level/Forest_Levels/forest_1-1.tscn" id="2_hyuye"]
 [ext_resource type="PackedScene" uid="uid://dqmrmkf0k8wgw" path="res://ui/ui.tscn" id="2_tjf8n"]
 [ext_resource type="PackedScene" uid="uid://cnstugsadrjtr" path="res://ui/options_menu.tscn" id="3_3ticj"]
-[ext_resource type="PackedScene" uid="uid://vifd5y7ef55p" path="res://level/instances/level_test_big.tscn" id="3_hyuye"]
 [ext_resource type="PackedScene" uid="uid://ck3l1081gunhp" path="res://ui/scene_transition.tscn" id="5_33xix"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_lbacn")
-levels = Array[PackedScene]([ExtResource("1_r2uep"), ExtResource("3_hyuye")])
+levels = Array[PackedScene]([ExtResource("2_hyuye")])
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 

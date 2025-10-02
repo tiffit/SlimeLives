@@ -1,18 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5gxdv8qm44mq"]
+[gd_scene load_steps=18 format=3 uid="uid://c5gxdv8qm44mq"]
 
 [ext_resource type="Script" uid="uid://cf7sweyu1ado0" path="res://character/character.gd" id="1_yf0e5"]
 [ext_resource type="PackedScene" uid="uid://voxgl40mko7a" path="res://platforms/platform.tscn" id="2_1l1n4"]
+[ext_resource type="Texture2D" uid="uid://bf2agy1m54ru2" path="res://sprites/slime_body.png" id="3_0rvpn"]
+[ext_resource type="Texture2D" uid="uid://b7anm3eacs6of" path="res://sprites/slime_tail.png" id="3_dy06j"]
 [ext_resource type="PackedScene" uid="uid://dcqdrha0xmhky" path="res://character/slime_trail.tscn" id="3_ugqs2"]
 [ext_resource type="PackedScene" uid="uid://dikjvea3lgpow" path="res://character/slime_idle.tscn" id="4_hx151"]
+[ext_resource type="Texture2D" uid="uid://dsde05vy6jkok" path="res://sprites/slime_ears.png" id="6_o6jyn"]
+[ext_resource type="Texture2D" uid="uid://b5s5ahtr3lkmn" path="res://sprites/slime_face.png" id="7_tgjim"]
+[ext_resource type="Texture2D" uid="uid://dsk6134a75vfr" path="res://sprites/slime_arms.png" id="8_wy5t8"]
 
-[sub_resource type="Gradient" id="Gradient_vu45j"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkjfd"]
+radius = 4.1231055
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_glpr6"]
-gradient = SubResource("Gradient_vu45j")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l1n4"]
-size = Vector2(84, 84)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6jyn"]
+size = Vector2(65, 63)
 
 [sub_resource type="Animation" id="Animation_ugqs2"]
 length = 0.001
@@ -99,17 +101,40 @@ _data = {
 &"death": SubResource("Animation_1l1n4")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgjim"]
+radius = 2.236068
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dy06j"]
+radius = 4.1231055
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgjim"]
+
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_yf0e5")
 platform_scene = ExtResource("2_1l1n4")
 
+[node name="Tail" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+lock_rotation = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Tail"]
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(-7, -1.9999983)
+scale = Vector2(5, 5)
+texture = ExtResource("3_dy06j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tail"]
+shape = SubResource("CircleShape2D_qkjfd")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.9073486e-06, -0.24999905)
-scale = Vector2(1.3125, 1.3203125)
-texture = SubResource("GradientTexture2D_glpr6")
+modulate = Color(1, 1, 1, 0.5882353)
+scale = Vector2(5, 4.545)
+texture = ExtResource("3_0rvpn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1l1n4")
+position = Vector2(2.5, 4.5)
+shape = SubResource("RectangleShape2D_o6jyn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -117,6 +142,125 @@ libraries = {
 }
 
 [node name="SlimeTrail" parent="." instance=ExtResource("3_ugqs2")]
-position = Vector2(0, 22)
+position = Vector2(0, 32)
 
 [node name="SlimeIdle" parent="." instance=ExtResource("4_hx151")]
+position = Vector2(0, 32)
+
+[node name="Ears" type="RigidBody2D" parent="."]
+position = Vector2(-2, -3)
+collision_layer = 0
+collision_mask = 0
+gravity_scale = -1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Ears"]
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(-3, -8)
+scale = Vector2(5, 2.769)
+texture = ExtResource("6_o6jyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ears"]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_tgjim")
+disabled = true
+
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
+position = Vector2(7, 7)
+rotation = 2.6179938
+node_a = NodePath("..")
+node_b = NodePath("../Ears")
+length = 6.0
+initial_offset = 5.0
+
+[node name="Paws" type="RigidBody2D" parent="."]
+position = Vector2(2, 0)
+collision_layer = 0
+collision_mask = 0
+mass = 0.1
+gravity_scale = 0.1
+lock_rotation = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Paws"]
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(3, 5)
+scale = Vector2(4, 4)
+texture = ExtResource("8_wy5t8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paws"]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_dy06j")
+
+[node name="Face" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+mass = 0.1
+gravity_scale = 0.1
+lock_rotation = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Face"]
+position = Vector2(-2, 5)
+scale = Vector2(4, 4)
+texture = ExtResource("7_tgjim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Face"]
+position = Vector2(3, 5)
+shape = SubResource("RectangleShape2D_tgjim")
+
+[node name="GrooveJoint2D2" type="GrooveJoint2D" parent="."]
+position = Vector2(10, -5)
+rotation = 0.17453292
+node_a = NodePath("..")
+node_b = NodePath("../Face")
+length = 10.0
+initial_offset = 5.0
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2(3, 5)
+rotation = 3.1415927
+node_a = NodePath("..")
+node_b = NodePath("../Face")
+length = 10.0
+stiffness = 0.1
+damping = 0.01
+
+[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="."]
+position = Vector2(7, 7)
+rotation = 3.6651914
+node_a = NodePath("..")
+node_b = NodePath("../Ears")
+length = 10.0
+stiffness = 0.1
+damping = 0.01
+
+[node name="GrooveJoint2D3" type="GrooveJoint2D" parent="."]
+position = Vector2(2, 0)
+rotation = 2.443461
+node_a = NodePath("..")
+node_b = NodePath("../Paws")
+length = 5.0
+initial_offset = 5.0
+
+[node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="."]
+rotation = 2.443461
+node_a = NodePath("..")
+node_b = NodePath("../Paws")
+length = 5.0
+stiffness = 0.1
+damping = 0.01
+
+[node name="GrooveJoint2D4" type="GrooveJoint2D" parent="."]
+position = Vector2(-18, 23.000002)
+rotation = 2.0943952
+node_a = NodePath("..")
+node_b = NodePath("../Tail")
+length = 10.0
+initial_offset = 10.0
+
+[node name="DampedSpringJoint2D4" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-18, 23)
+rotation = 2.0943952
+node_a = NodePath("..")
+node_b = NodePath("../Tail")
+length = 10.0
+stiffness = 0.1
+damping = 0.01

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=4 uid="uid://bgkjqy312t6v2"]
+
+[ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_b341w"]
+[ext_resource type="PackedScene" uid="uid://d36mkbo8wp7b6" path="res://entities/spawn_point.tscn" id="2_xw45l"]
+[ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/end_point.tscn" id="3_sx260"]
+
+[node name="Level" instance=ExtResource("1_b341w")]
+level_name = "1-1 Mortal Eviction"
+level_width = 70
+
+[node name="TileMapLayer" parent="." index="0"]
+tile_map_data = PackedByteArray("AAACAAcAAgAGAAIAAAACAAYAAgAGAAEAAAABAAcAAgAFAAIAAAABAAYAAgAFAAEAAAAAAAcAAgAFAAIAAAAAAAYAAgAFAAEAAAANAAcAAgAFAAIAAAANAAYAAgAFAAEAAAAMAAcAAgAFAAIAAAAMAAYAAgAFAAEAAAALAAcAAgAEAAIAAAALAAYAAgAEAAEAAAD//wcAAgAFAAIAAAD//wYAAgAFAAIAAAD//wUAAgAGAAIAAAD//wQAAgAGAAIAAAD//wMAAgAGAAIAAAD//wIAAgAGAAIAAAD//wEAAgAGAAIAAAD//wAAAgAGAAEAAAD+/wcAAgAFAAIAAAD+/wYAAgAFAAIAAAD+/wUAAgAFAAIAAAD+/wQAAgAFAAIAAAD+/wMAAgAFAAIAAAD+/wIAAgAFAAIAAAD+/wEAAgAFAAIAAAD+/wAAAgAFAAEAAAD9/wcAAgAEAAIAAAD9/wYAAgAEAAIAAAD9/wUAAgAEAAIAAAD9/wQAAgAEAAIAAAD9/wMAAgAEAAIAAAD9/wIAAgAEAAIAAAD9/wEAAgAEAAIAAAD9/wAAAgAEAAEAAAAQAAcAAgAGAAIAAAAQAAYAAgAGAAIAAAAQAAUAAgAGAAIAAAAQAAQAAgAGAAIAAAAQAAMAAgAGAAIAAAAQAAIAAgAGAAIAAAAQAAEAAgAGAAIAAAAQAAAAAgAGAAEAAAAPAAcAAgAFAAIAAAAPAAYAAgAFAAIAAAAPAAUAAgAFAAIAAAAPAAQAAgAFAAIAAAAPAAMAAgAFAAIAAAAPAAIAAgAFAAIAAAAPAAEAAgAFAAIAAAAPAAAAAgAFAAEAAAAOAAcAAgAFAAIAAAAOAAYAAgAFAAIAAAAOAAUAAgAEAAIAAAAOAAQAAgAEAAIAAAAOAAMAAgAEAAIAAAAOAAIAAgAEAAIAAAAOAAEAAgAEAAIAAAAOAAAAAgAEAAEAAAA=")
+
+[node name="Camera2D" parent="." index="1"]
+position = Vector2(575, 324)
+
+[node name="SpawnPoint" parent="." index="2" instance=ExtResource("2_xw45l")]
+position = Vector2(581, -27)
+
+[node name="EndPoint" parent="." index="3" instance=ExtResource("3_sx260")]
+position = Vector2(1011, 405)

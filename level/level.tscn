@@ -154,3 +154,5 @@ scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_vkbyq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
