@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_4dnnh"]
 [ext_resource type="PackedScene" uid="uid://o30e61yppbfd" path="res://level/Forest_Levels/parallax_bg.tscn" id="2_3wji3"]
 [ext_resource type="PackedScene" uid="uid://d36mkbo8wp7b6" path="res://entities/spawn_point.tscn" id="3_arc68"]
-[ext_resource type="PackedScene" uid="uid://cnp05mhkr5kr" path="res://entities/test_death_trap.tscn" id="4_uusfm"]
+[ext_resource type="PackedScene" uid="uid://cnp05mhkr5kr" path="res://entities/traps/test_death_trap.tscn" id="4_uusfm"]
 [ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/end_point.tscn" id="5_rrbgt"]
 [ext_resource type="PackedScene" uid="uid://b2fja44c1vsx7" path="res://entities/items/crucifix_item_entity.tscn" id="6_arc68"]
 
