@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://chcfhjemsra56"]
+[gd_scene load_steps=8 format=4 uid="uid://chcfhjemsra56"]
 
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_4dnnh"]
 [ext_resource type="PackedScene" uid="uid://o30e61yppbfd" path="res://level/Forest_Levels/parallax_bg.tscn" id="2_3wji3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cnp05mhkr5kr" path="res://entities/test_death_trap.tscn" id="4_uusfm"]
 [ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/end_point.tscn" id="5_rrbgt"]
 [ext_resource type="PackedScene" uid="uid://b2fja44c1vsx7" path="res://entities/items/crucifix_item_entity.tscn" id="6_arc68"]
+[ext_resource type="PackedScene" uid="uid://dx0nkt1qhhdbj" path="res://entities/checkpoint.tscn" id="7_uusfm"]
 
 [node name="Level" instance=ExtResource("1_4dnnh")]
 level_name = "1-2 Slimy Steps"
@@ -28,3 +29,6 @@ position = Vector2(2141, 476)
 
 [node name="Crucifix ItemEntity" parent="." index="6" instance=ExtResource("6_arc68")]
 position = Vector2(355, 497)
+
+[node name="Checkpoint" parent="." index="7" instance=ExtResource("7_uusfm")]
+position = Vector2(744, 523)

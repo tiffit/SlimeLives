@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx0nkt1qhhdbj"]
+
+[ext_resource type="Script" uid="uid://cdacwj7qkrvti" path="res://entities/checkpoint.gd" id="1_wpuaw"]
+[ext_resource type="PackedScene" uid="uid://c5gxdv8qm44mq" path="res://character/character.tscn" id="2_hjeaj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wpuaw"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjeaj"]
+size = Vector2(16, 16)
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_wpuaw")
+characterScene = ExtResource("2_hjeaj")
+metadata/_custom_type_script = "uid://cdacwj7qkrvti"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.5882353, 1)
+texture = SubResource("PlaceholderTexture2D_wpuaw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hjeaj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_player_entered"]

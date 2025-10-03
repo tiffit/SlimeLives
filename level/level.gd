@@ -9,12 +9,20 @@ var camera: Camera2D
 var character: Character = null
 var level_bounds: Rect2 = Rect2()
 var circle_transition: CircleTransition
+var current_spawn: Spawnable = null
 
 func _ready() -> void:
 	level_bounds = Rect2(0, 0, level_width*tile_size, level_height*tile_size)
 	if not Engine.is_editor_hint():
 		camera = get_node("Camera2D")
 		circle_transition = get_node("../GameUI/circle_transition")
+	
+		# Find Spawnpoint
+		for child in get_children():
+			if child is SpawnPoint:
+				current_spawn = child
+				break
+		
 		respawn_character()
 
 func _process(delta: float) -> void:
@@ -47,12 +55,10 @@ func move_camera():
 					camera.position.x = level_bounds.position.x + viewport.size.x/2
 
 func respawn_character():
-	for child in get_children():
-		if child is SpawnPoint:
-			character = child.spawn_character(self)
-			move_camera()
-			play_circle(false)
-			break
+	if current_spawn:
+		character = current_spawn.spawn_character(self)
+		move_camera()
+		play_circle(false)
 	
 func play_circle(close: bool) -> MethodTweener:
 	if circle_transition:
