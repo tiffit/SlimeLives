@@ -59,6 +59,7 @@ func kill(reason: KillReason) -> void:
 		return
 	dead = true
 	if level:
+		level.vignette.flash_vignette()
 		if reason != KillReason.BOUNDS:
 			$AnimationPlayer.play("death")
 			await $AnimationPlayer.animation_finished

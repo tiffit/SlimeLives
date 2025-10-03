@@ -9,13 +9,15 @@ var camera: Camera2D
 var character: Character = null
 var level_bounds: Rect2 = Rect2()
 var circle_transition: CircleTransition
+var vignette: Vignette
 var current_spawn: Spawnable = null
 
 func _ready() -> void:
 	level_bounds = Rect2(0, 0, level_width*tile_size, level_height*tile_size)
 	if not Engine.is_editor_hint():
 		camera = get_node("Camera2D")
-		circle_transition = get_node("../GameUI/circle_transition")
+		circle_transition = get_node("../GameUI/SceneTransition")
+		vignette = get_node("../GameUI/Vignette")
 	
 		# Find Spawnpoint
 		for child in get_children():

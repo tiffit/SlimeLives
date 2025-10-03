@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://m7gbndc4ljw5"]
+[gd_scene load_steps=8 format=3 uid="uid://m7gbndc4ljw5"]
 
 [ext_resource type="Script" uid="uid://dk4jl6v1yleau" path="res://game_main.gd" id="1_lbacn"]
 [ext_resource type="PackedScene" uid="uid://bgkjqy312t6v2" path="res://level/Forest_Levels/forest_1-1.tscn" id="2_hyuye"]
 [ext_resource type="PackedScene" uid="uid://dqmrmkf0k8wgw" path="res://ui/ui.tscn" id="2_tjf8n"]
 [ext_resource type="PackedScene" uid="uid://cnstugsadrjtr" path="res://ui/options_menu.tscn" id="3_3ticj"]
 [ext_resource type="PackedScene" uid="uid://chcfhjemsra56" path="res://level/Forest_Levels/forest_1-2.tscn" id="3_33xix"]
-[ext_resource type="PackedScene" uid="uid://ck3l1081gunhp" path="res://ui/scene_transition.tscn" id="5_33xix"]
+[ext_resource type="PackedScene" uid="uid://ck3l1081gunhp" path="res://ui/scene_transition/scene_transition.tscn" id="5_33xix"]
+[ext_resource type="PackedScene" uid="uid://emg3mefkn652" path="res://ui/vignette/vignette.tscn" id="6_8tpvh"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_lbacn")
@@ -15,7 +16,13 @@ levels = Array[PackedScene]([ExtResource("2_hyuye"), ExtResource("3_33xix")])
 
 [node name="UI" parent="GameUI" instance=ExtResource("2_tjf8n")]
 
-[node name="circle_transition" parent="GameUI" instance=ExtResource("5_33xix")]
+[node name="SceneTransition" parent="GameUI" instance=ExtResource("5_33xix")]
+
+[node name="Vignette" parent="GameUI" instance=ExtResource("6_8tpvh")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="OptionsMenu" parent="." instance=ExtResource("3_3ticj")]
 process_mode = 3
