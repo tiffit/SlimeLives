@@ -6,6 +6,7 @@
 size = Vector2(80, 80)
 
 [node name="ItemEntity" type="Node2D"]
+z_index = -1
 script = ExtResource("1_r7n1h")
 metadata/_custom_type_script = "uid://c38557dqlkv5m"
 

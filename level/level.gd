@@ -14,6 +14,7 @@ var current_spawn: Spawnable = null
 
 func _ready() -> void:
 	level_bounds = Rect2(0, 0, level_width*tile_size, level_height*tile_size)
+	print(level_bounds)
 	if not Engine.is_editor_hint():
 		camera = get_node("Camera2D")
 		circle_transition = get_node("../GameUI/SceneTransition")

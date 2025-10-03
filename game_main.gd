@@ -15,6 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset_level"):
 		level_index -= 1
+		get_node("/root/GameMain/GameUI/UI").heart_icon.play_swing()
 		load_next_level()
 
 func load_next_level():

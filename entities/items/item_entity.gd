@@ -18,6 +18,7 @@ func update_render():
 		
 func _on_player_entered(body: Node2D) -> void:
 	if body is Character and not is_queued_for_deletion():
-		if item:
-			body.pickup_item(item)
-		queue_free()
+		if body.item == null:
+			if item:
+				body.pickup_item(item)
+			queue_free()
