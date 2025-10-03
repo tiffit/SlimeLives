@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmnwrofkpfdbv"]
+
+[ext_resource type="Script" uid="uid://r0k5a1q8hvlw" path="res://death_plane.gd" id="1_y637f"]
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_y637f")
+metadata/_custom_type_script = "uid://cmxrkn8rph7j"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

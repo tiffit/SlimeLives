@@ -1,4 +1,4 @@
-@tool class_name ItemEntity extends Entity
+@tool class_name ItemEntity extends RigidBody2D
 
 @export var item: Item:
 	get:
