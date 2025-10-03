@@ -32,5 +32,6 @@ func _process(delta: float) -> void:
 		var move_amount: float = fall_speed*delta
 		if distance < move_amount:
 			move_amount = distance
+		
 		move_and_collide(Vector2(0, move_amount))
 	
