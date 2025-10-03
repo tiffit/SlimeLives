@@ -1,5 +1,7 @@
 class_name GameMain extends Node2D
 
+signal i_died()
+
 @export var levels: Array[PackedScene] = [] 
 # If set, the level loaded will always be this level
 @export var force_level: PackedScene = null

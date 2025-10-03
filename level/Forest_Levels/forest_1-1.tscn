@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://bgkjqy312t6v2"]
+[gd_scene load_steps=8 format=4 uid="uid://bgkjqy312t6v2"]
 
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_b341w"]
 [ext_resource type="PackedScene" uid="uid://o30e61yppbfd" path="res://level/Forest_Levels/parallax_bg.tscn" id="2_sx260"]
 [ext_resource type="PackedScene" uid="uid://d36mkbo8wp7b6" path="res://entities/spawn_point.tscn" id="2_xw45l"]
 [ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/end_point.tscn" id="3_sx260"]
 [ext_resource type="Script" uid="uid://cmxrkn8rph7j" path="res://entities/traps/test_death_trap.gd" id="5_8eq63"]
+[ext_resource type="PackedScene" uid="uid://dx0nkt1qhhdbj" path="res://entities/checkpoint.tscn" id="6_texf8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_texf8"]
 size = Vector2(640, 30)
@@ -27,7 +28,7 @@ position = Vector2(577, 54)
 position = Vector2(570, 49)
 
 [node name="EndPoint" parent="." index="4" instance=ExtResource("3_sx260")]
-position = Vector2(1024, 903)
+position = Vector2(1032, 944)
 
 [node name="TestDeathTrap" type="Node2D" parent="." index="5"]
 position = Vector2(554, 1106)
@@ -39,5 +40,8 @@ metadata/_custom_type_script = "uid://cmxrkn8rph7j"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestDeathTrap/Area2D" index="0"]
 position = Vector2(6, 79)
 shape = SubResource("RectangleShape2D_texf8")
+
+[node name="Checkpoint" parent="." index="6" instance=ExtResource("6_texf8")]
+position = Vector2(555, 928)
 
 [connection signal="body_entered" from="TestDeathTrap/Area2D" to="TestDeathTrap" method="_on_player_entered"]

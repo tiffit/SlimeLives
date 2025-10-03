@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqmrmkf0k8wgw"]
+[gd_scene load_steps=7 format=3 uid="uid://dqmrmkf0k8wgw"]
 
 [ext_resource type="Script" uid="uid://covnqteot2xrf" path="res://ui/ui.gd" id="1_m6e0p"]
 [ext_resource type="FontFile" uid="uid://dc7dxafyie71e" path="res://sprites/ComicRelief-Regular.ttf" id="2_27fn8"]
 [ext_resource type="PackedScene" uid="uid://kpkqihk2lgdb" path="res://ui/heart_icon.tscn" id="3_27fn8"]
+[ext_resource type="Texture2D" uid="uid://da1l715hwblv1" path="res://sprites/slimelives_heart_shadow.png" id="3_vkava"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
 bg_color = Color(0.18039216, 0.53333336, 0.38431373, 0.49019608)
@@ -42,7 +43,7 @@ text = "[][]"
 layout_mode = 0
 offset_left = 789.0
 offset_top = 16.0
-offset_right = 1038.0
+offset_right = 1039.0
 offset_bottom = 144.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_27fn8")
 
@@ -68,6 +69,17 @@ theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("2_27fn8")
 theme_override_font_sizes/font_size = 64
 text = "x9"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = -138
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("3_vkava")
+expand_mode = 2
 
 [node name="HeartIcon" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_27fn8")]
 layout_mode = 2

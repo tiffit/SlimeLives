@@ -27,3 +27,5 @@ offset_bottom = 0.0
 [node name="OptionsMenu" parent="." instance=ExtResource("3_3ticj")]
 process_mode = 3
 visible = false
+
+[connection signal="i_died" from="." to="GameUI/UI" method="_on_game_main_i_died"]

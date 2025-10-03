@@ -52,6 +52,7 @@ func kill_and_respawn(reason: KillReason) -> void:
 		return
 	await kill(reason)
 	if level:
+		get_node("/root/GameMain/GameUI/UI").heart_icon.play_swing()
 		level.respawn_character()
 
 func kill(reason: KillReason) -> void:
@@ -61,6 +62,7 @@ func kill(reason: KillReason) -> void:
 	if level:
 		level.vignette.flash_vignette()
 		if reason != KillReason.BOUNDS:
+			get_node("/root/GameMain").i_died.emit()
 			$AnimationPlayer.play("death")
 			await $AnimationPlayer.animation_finished
 			var particles = DEATH_PARTICLES.instantiate()
