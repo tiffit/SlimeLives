@@ -23,6 +23,7 @@ SaveHelper="*res://save/save_helper.gd"
 [display]
 
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://d0v4hdtfd3wno"
 
 [input]
 

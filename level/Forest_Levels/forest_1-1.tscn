@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_b341w"]
 [ext_resource type="PackedScene" uid="uid://o30e61yppbfd" path="res://level/Forest_Levels/parallax_bg.tscn" id="2_sx260"]
-[ext_resource type="PackedScene" uid="uid://d36mkbo8wp7b6" path="res://entities/spawn_point.tscn" id="2_xw45l"]
+[ext_resource type="PackedScene" uid="uid://d36mkbo8wp7b6" path="res://entities/level_objective/spawn_point.tscn" id="2_xw45l"]
 [ext_resource type="TileSet" uid="uid://ckh3xbhrp7k4h" path="res://level/forest_tiles.tres" id="3_gxr72"]
-[ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/end_point.tscn" id="3_sx260"]
-[ext_resource type="PackedScene" uid="uid://dx0nkt1qhhdbj" path="res://entities/checkpoint.tscn" id="6_texf8"]
+[ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/level_objective/end_point.tscn" id="3_sx260"]
+[ext_resource type="PackedScene" uid="uid://dx0nkt1qhhdbj" path="res://entities/level_objective/checkpoint.tscn" id="6_texf8"]
 [ext_resource type="Script" uid="uid://cmxrkn8rph7j" path="res://entities/traps/death_plane.gd" id="7_gxr72"]
-[ext_resource type="PackedScene" uid="uid://cm5i1i701d0vy" path="res://entities/collectible.tscn" id="8_y8xjx"]
+[ext_resource type="PackedScene" uid="uid://cm5i1i701d0vy" path="res://entities/level_objective/collectible.tscn" id="8_y8xjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8xjx"]
 size = Vector2(640.25, 29.5)

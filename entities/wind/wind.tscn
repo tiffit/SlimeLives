@@ -28,7 +28,6 @@ collision_layer = 0
 collision_mask = 47
 script = ExtResource("1_5aigf")
 size = Vector2(50, 50)
-strength = null
 metadata/_custom_type_script = "uid://c35wdpu0vrqs8"
 
 [node name="Background" type="Sprite2D" parent="."]

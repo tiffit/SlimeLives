@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dx0nkt1qhhdbj"]
 
-[ext_resource type="Script" uid="uid://cdacwj7qkrvti" path="res://entities/checkpoint.gd" id="1_wpuaw"]
+[ext_resource type="Script" uid="uid://cdacwj7qkrvti" path="res://entities/level_objective/checkpoint.gd" id="1_wpuaw"]
 [ext_resource type="PackedScene" uid="uid://c5gxdv8qm44mq" path="res://character/character.tscn" id="2_hjeaj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wpuaw"]

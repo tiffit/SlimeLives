@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ew2thp3ltsmj"]
 
-[ext_resource type="Script" uid="uid://cqrt2j1dym3rx" path="res://entities/end_point.gd" id="1_pp5u8"]
+[ext_resource type="Script" uid="uid://cqrt2j1dym3rx" path="res://entities/level_objective/end_point.gd" id="1_pp5u8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yoha2"]
 size = Vector2(16, 16)
