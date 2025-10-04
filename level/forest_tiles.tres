@@ -1,10 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgm53ymxlq3vc"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://ckh3xbhrp7k4h"]
 
-[ext_resource type="Script" uid="uid://13imokkm63o5" path="res://level/level.gd" id="1_qohg2"]
-[ext_resource type="Texture2D" uid="uid://b1pk3flaa4uew" path="res://sprites/slimelives_tileset_1.png" id="2_5gx2l"]
+[ext_resource type="Texture2D" uid="uid://b1pk3flaa4uew" path="res://sprites/slimelives_tileset_1.png" id="1_kvmb7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qohg2"]
-texture = ExtResource("2_5gx2l")
+texture = ExtResource("1_kvmb7")
 4:0/0 = 0
 4:0/0/terrain_set = 0
 4:0/0/terrain = 2
@@ -516,8 +515,55 @@ texture = ExtResource("2_5gx2l")
 13:3/0/terrains_peering_bit/top_left_corner = 7
 13:3/0/terrains_peering_bit/top_side = 7
 13:3/0/terrains_peering_bit/top_right_corner = 7
+11:0/0 = 0
+11:0/0/terrain_set = 0
+11:0/0/terrains_peering_bit/right_side = 9
+11:0/0/terrains_peering_bit/bottom_right_corner = 9
+11:0/0/terrains_peering_bit/top_right_corner = 9
+12:0/0 = 0
+12:0/0/terrain_set = 0
+12:0/0/terrains_peering_bit/bottom_left_corner = 8
+12:0/0/terrains_peering_bit/left_side = 8
+12:0/0/terrains_peering_bit/top_left_corner = 8
+12:1/0 = 0
+12:1/0/terrain_set = 0
+12:1/0/terrains_peering_bit/bottom_side = 4
+12:1/0/terrains_peering_bit/bottom_left_corner = 4
+13:1/0 = 0
+13:1/0/terrain_set = 0
+13:1/0/terrains_peering_bit/bottom_right_corner = 4
+13:1/0/terrains_peering_bit/bottom_side = 4
+14:0/0 = 0
+14:0/0/terrain_set = 0
+14:0/0/terrains_peering_bit/top_left_corner = 10
+14:0/0/terrains_peering_bit/top_side = 10
+14:0/0/terrains_peering_bit/top_right_corner = 10
+13:0/0 = 0
+13:0/0/terrain_set = 0
+13:0/0/terrains_peering_bit/top_side = 10
+13:0/0/terrains_peering_bit/top_right_corner = 10
+15:0/0 = 0
+15:0/0/terrain_set = 0
+15:0/0/terrains_peering_bit/top_left_corner = 10
+15:0/0/terrains_peering_bit/top_side = 10
+14:1/0 = 0
+14:1/0/terrain_set = 0
+14:1/0/terrains_peering_bit/right_side = 9
+14:1/0/terrains_peering_bit/bottom_right_corner = 9
+15:1/0 = 0
+15:1/0/terrain_set = 0
+15:1/0/terrains_peering_bit/bottom_left_corner = 8
+15:1/0/terrains_peering_bit/left_side = 8
+15:2/0 = 0
+15:2/0/terrain_set = 0
+15:2/0/terrains_peering_bit/left_side = 8
+15:2/0/terrains_peering_bit/top_left_corner = 8
+14:2/0 = 0
+14:2/0/terrain_set = 0
+14:2/0/terrains_peering_bit/right_side = 9
+14:2/0/terrains_peering_bit/top_right_corner = 9
 
-[sub_resource type="TileSet" id="TileSet_vkbyq"]
+[resource]
 physics_layer_0/collision_layer = 4
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Forest Ground"
@@ -536,15 +582,10 @@ terrain_set_0/terrain_6/name = "Small Tree"
 terrain_set_0/terrain_6/color = Color(0.25, 0.5, 0.40625, 1)
 terrain_set_0/terrain_7/name = "Decorative"
 terrain_set_0/terrain_7/color = Color(0.7501307, 0.2568462, 0.32062215, 1)
+terrain_set_0/terrain_8/name = "Spikes East"
+terrain_set_0/terrain_8/color = Color(0.25, 0.40625, 0.5, 1)
+terrain_set_0/terrain_9/name = "Spikes West"
+terrain_set_0/terrain_9/color = Color(0.25, 0.3125, 0.5, 1)
+terrain_set_0/terrain_10/name = "Spikes South"
+terrain_set_0/terrain_10/color = Color(0.28125, 0.25, 0.5, 1)
 sources/2 = SubResource("TileSetAtlasSource_qohg2")
-
-[node name="Level" type="Node2D"]
-script = ExtResource("1_qohg2")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-scale = Vector2(5, 5)
-tile_set = ExtResource("2_5gx2l")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-process_callback = 0
-position_smoothing_enabled = true
