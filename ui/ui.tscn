@@ -63,12 +63,13 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="LivesCount" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("2_27fn8")
 theme_override_font_sizes/font_size = 64
-text = "x9"
+text = "x0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2

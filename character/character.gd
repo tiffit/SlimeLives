@@ -82,6 +82,7 @@ func kill(reason: KillReason) -> void:
 			level.call_deferred("add_child", particles)
 			spawn_platform()
 		await level.play_circle(true).finished
+		level.lives -= 1
 	queue_free()
 
 func spawn_platform():
