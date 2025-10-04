@@ -27,7 +27,7 @@ hue_variation_max = 0.99999994
 [node name="DeathParticles" type="GPUParticles2D"]
 amount = 30
 texture = ExtResource("1_c73c5")
-lifetime = 2.0
+lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 collision_base_size = 0.1
