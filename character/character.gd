@@ -94,7 +94,7 @@ func spawn_platform():
 	if scene:
 		var platform: Node2D = scene.instantiate()
 		platform.position = position
-		platform.position += Vector2(0, -50)
+		platform.position += Vector2(0, -40)
 		level.call_deferred("add_child", platform)
 
 func pickup_item(item: Item):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bi6m8cpvqwgoi"]
+[gd_scene load_steps=12 format=4 uid="uid://bi6m8cpvqwgoi"]
 
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_a31by"]
 [ext_resource type="PackedScene" uid="uid://o30e61yppbfd" path="res://level/Forest_Levels/parallax_bg.tscn" id="2_dc152"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dx0nkt1qhhdbj" path="res://entities/checkpoint.tscn" id="6_yn5pf"]
 [ext_resource type="PackedScene" uid="uid://dswxvjfdecshj" path="res://entities/traps/projectile_emitter.tscn" id="7_8vpsp"]
 [ext_resource type="Script" uid="uid://cmxrkn8rph7j" path="res://entities/traps/death_plane.gd" id="8_yetc8"]
+[ext_resource type="PackedScene" uid="uid://cm5i1i701d0vy" path="res://entities/collectible.tscn" id="9_dbpdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxfu7"]
 size = Vector2(880, 30)
@@ -125,3 +126,6 @@ metadata/_custom_type_script = "uid://cmxrkn8rph7j"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane2/Area2D" index="0"]
 position = Vector2(800, 545)
 shape = SubResource("RectangleShape2D_yetc8")
+
+[node name="Collectible" parent="." index="18" instance=ExtResource("9_dbpdf")]
+position = Vector2(802, 84)
