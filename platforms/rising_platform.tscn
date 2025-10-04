@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://chg4vguq7bhvb"]
+[gd_scene load_steps=8 format=3 uid="uid://chg4vguq7bhvb"]
 
 [ext_resource type="Script" uid="uid://b1la0vajivmt0" path="res://platforms/rising_platform.gd" id="2_0urw1"]
 [ext_resource type="Texture2D" uid="uid://hyn22hwytc1t" path="res://sprites/slime_platform.png" id="2_cfbwp"]
@@ -8,6 +8,44 @@ size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfbwp"]
 size = Vector2(64, 5)
+
+[sub_resource type="Animation" id="Animation_0urw1"]
+resource_name = "float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cfbwp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3thrn"]
+_data = {
+&"RESET": SubResource("Animation_cfbwp"),
+&"float": SubResource("Animation_0urw1")
+}
 
 [node name="RisingPlatform" type="AnimatableBody2D"]
 collision_mask = 0
@@ -32,6 +70,12 @@ shape = SubResource("RectangleShape2D_cfbwp")
 debug_color = Color(0.9684424, 0, 0.4709128, 0.41960785)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3thrn")
+}
+autoplay = "float"
 
 [connection signal="body_entered" from="RisingDetectArea" to="." method="_on_player_land"]
 [connection signal="body_exited" from="RisingDetectArea" to="." method="_on_player_leave"]
