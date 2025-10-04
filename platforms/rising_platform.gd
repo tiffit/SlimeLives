@@ -2,8 +2,8 @@ class_name RisingPlatform extends AnimatableBody2D
 
 var is_rising: bool = false
 var initial_y: float = 0
-var rise_speed: float = 100
-var fall_speed: float = 300
+var rise_speed: float = 250
+var fall_speed: float = 150
 var player: Character = null
 var ceiling_padding: float
 

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3upj2e2pwkbv"]
+
+[sub_resource type="Curve" id="Curve_c2ue1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4270073, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_juq7p"]
+curve = SubResource("Curve_c2ue1")
+
+[sub_resource type="Curve" id="Curve_vvtqx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5145985, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dehxw"]
+curve = SubResource("Curve_vvtqx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wqk2w"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(0, -1, 0)
+spread = 20.0
+initial_velocity_min = 67.31
+initial_velocity_max = 153.84999
+gravity = Vector3(0, 300, 0)
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_dehxw")
+alpha_curve = SubResource("CurveTexture_juq7p")
+
+[node name="ProjectileHitParticles" type="GPUParticles2D"]
+amount = 10
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_wqk2w")

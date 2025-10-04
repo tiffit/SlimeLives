@@ -31,5 +31,7 @@ position = Vector2(0, -42.5)
 shape = SubResource("RectangleShape2D_cfbwp")
 debug_color = Color(0.9684424, 0, 0.4709128, 0.41960785)
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
 [connection signal="body_entered" from="RisingDetectArea" to="." method="_on_player_land"]
 [connection signal="body_exited" from="RisingDetectArea" to="." method="_on_player_leave"]

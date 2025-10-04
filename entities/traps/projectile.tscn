@@ -1,13 +1,81 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmnwrofkpfdbv"]
+[gd_scene load_steps=9 format=3 uid="uid://bmnwrofkpfdbv"]
 
 [ext_resource type="Script" uid="uid://r0k5a1q8hvlw" path="res://death_plane.gd" id="1_y637f"]
+[ext_resource type="Texture2D" uid="uid://ckjjabdhvy0gu" path="res://sprites/arrow_placeholder.png" id="2_e61yj"]
+[ext_resource type="Script" uid="uid://cmxrkn8rph7j" path="res://entities/traps/death_plane.gd" id="3_7lbh7"]
+[ext_resource type="PackedScene" uid="uid://b3upj2e2pwkbv" path="res://entities/traps/projectile_hit_particles.tscn" id="4_7lbh7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iwbbq"]
+radius = 7.0
+height = 98.0
+
+[sub_resource type="Animation" id="Animation_e61yj"]
+resource_name = "dead"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(0.13397178, 2.9281702, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7lbh7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iwbbq"]
+_data = {
+&"RESET": SubResource("Animation_7lbh7"),
+&"dead": SubResource("Animation_e61yj")
+}
 
 [node name="Projectile" type="Node2D"]
+rotation = -1.5707964
 script = ExtResource("1_y637f")
+particles = ExtResource("4_7lbh7")
 metadata/_custom_type_script = "uid://cmxrkn8rph7j"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.7853982
+scale = Vector2(5, 5)
+texture = ExtResource("2_e61yj")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DeathPlane" type="Node2D" parent="."]
+script = ExtResource("3_7lbh7")
+metadata/_custom_type_script = "uid://cmxrkn8rph7j"
+
+[node name="Area2D" type="Area2D" parent="DeathPlane"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane/Area2D"]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_iwbbq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_iwbbq")
+}
+
+[node name="ParticleSpawn" type="Node2D" parent="."]
+position = Vector2(2.1855694e-06, -50)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

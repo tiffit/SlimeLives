@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cp5hr0haae4bh" path="res://sprites/twisted_forest_bg.png" id="2_fcoa4"]
 
 [node name="Parallax_BG" type="Node2D"]
+z_index = -99
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.1, 0.1)

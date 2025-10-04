@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dswxvjfdecshj"]
+
+[ext_resource type="Script" uid="uid://osxggmytfs03" path="res://entities/traps/projectile_emitter.gd" id="1_yt21e"]
+[ext_resource type="PackedScene" uid="uid://bmnwrofkpfdbv" path="res://entities/traps/projectile.tscn" id="2_jy8fr"]
+[ext_resource type="Texture2D" uid="uid://bcwwryr4okjim" path="res://sprites/arrow_trap_placeholder.png" id="3_mcf5y"]
+
+[node name="ProjectileEmitter" type="Node2D"]
+z_index = -1
+script = ExtResource("1_yt21e")
+proj = ExtResource("2_jy8fr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 3
+offset_left = 40.0
+offset_top = -5.0
+offset_right = 80.0
+offset_bottom = 5.0
+rotation = 3.1415927
+pivot_offset = Vector2(0, 5)
+color = Color(1, 0.023529412, 0.023529412, 0.49803922)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5707964
+scale = Vector2(5, 5)
+texture = ExtResource("3_mcf5y")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+
+[node name="Offset" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Offset" to="." method="_on_offset_timeout"]
