@@ -8,16 +8,19 @@ var level: Level = null
 
 func _ready() -> void:
 	Globals.find_my_level.connect(on_level_change)
+	%LivesCount.text = "x%d" % [9]
 
 func on_level_change(level: Level):
 	self.level = level
+	%LivesCount.text = "x%d" % [9]
 
 func _on_button_pressed() -> void:
 	options_menu.options_toggle()
 
 func _process(delta: float) -> void:
-	if level:
-		%LivesCount.text = "x%d" % [level.lives]
+	#if level:
+	#	%LivesCount.text = "x%d" % [level.lives]
+	pass
 
 func show_level_name(level_name: String):
 	$LevelName.text = level_name
@@ -30,3 +33,6 @@ func show_level_name(level_name: String):
 
 func _on_game_main_i_died() -> void:
 	heart_icon.play_fall()
+	if level:
+		if level.lives != 0:
+			%LivesCount.text = "x%d" % [level.lives - 1]

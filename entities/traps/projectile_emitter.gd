@@ -16,6 +16,15 @@ var level: Level
 func _ready() -> void:
 	timer.wait_time = cooldown
 	if timer_offset == 0.0:
+		if proj and level:
+			var projectile = proj.instantiate()
+			projectile.position = position
+			projectile.speed = projSpeed
+			projectile.rotate(rotation)
+			projectile.direction = Vector2(cos((rotation)), sin((rotation))).normalized()
+			projectile.lifetime = projLifetime
+			projectile.level = level
+			level.call_deferred("add_child", projectile)
 		timer.start()
 	else:
 		offset.wait_time = timer_offset
@@ -50,4 +59,13 @@ func on_level_find(piss: Level) -> void:
 
 
 func _on_offset_timeout() -> void:
+	if proj and level:
+		var projectile = proj.instantiate()
+		projectile.position = position
+		projectile.speed = projSpeed
+		projectile.rotate(rotation)
+		projectile.direction = Vector2(cos((rotation)), sin((rotation))).normalized()
+		projectile.lifetime = projLifetime
+		projectile.level = level
+		level.call_deferred("add_child", projectile)
 	timer.start()

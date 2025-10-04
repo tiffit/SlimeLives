@@ -10,8 +10,8 @@ scroll_scale = Vector2(0.1, 0.1)
 repeat_size = Vector2(1152, 648)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(576, 324)
-scale = Vector2(8.999998, 10.125)
+position = Vector2(576.00006, 324)
+scale = Vector2(9.000001, 8.999999)
 texture = ExtResource("2_fcoa4")
 region_enabled = true
-region_rect = Rect2(0, 0, 128, 64)
+region_rect = Rect2(0, 0, 128, 72)
