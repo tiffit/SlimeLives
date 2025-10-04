@@ -66,6 +66,7 @@ func respawn_character():
 		character = current_spawn.spawn_character(self)
 		move_camera()
 		play_circle(false)
+		# Note to self, add extra animation
 	
 func play_circle(close: bool) -> MethodTweener:
 	if circle_transition:

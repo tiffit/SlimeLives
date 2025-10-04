@@ -115,5 +115,5 @@ position = Vector2(2998, 140)
 
 [node name="ProjectileEmitter" parent="." index="13" instance=ExtResource("10_gshat")]
 position = Vector2(2684, 280)
-projLifetime = 2.2600000000000002
+projLifetime = 2.26
 cooldown = 3.0
