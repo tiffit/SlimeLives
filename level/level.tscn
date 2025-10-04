@@ -518,7 +518,7 @@ texture = ExtResource("2_5gx2l")
 13:3/0/terrains_peering_bit/top_right_corner = 7
 
 [sub_resource type="TileSet" id="TileSet_vkbyq"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Forest Ground"
 terrain_set_0/terrain_0/color = Color(0.35686275, 0.3647059, 0.4745098, 1)

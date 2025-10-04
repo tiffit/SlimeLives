@@ -3,6 +3,7 @@ class_name Character extends CharacterBody2D
 @export var speed: float = 400.0
 @export var jump_speed: float = 600.0
 @export var platform_scene: PackedScene
+@export var item_entity_scene: PackedScene
 
 @onready var slime_trail: GPUParticles2D = $SlimeTrail
 @onready var slime_idle: GPUParticles2D = $SlimeIdle
@@ -16,6 +17,17 @@ var item: Item = null
 
 enum KillReason { ENTITY, TILE, BOUNDS }
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("spit"):
+		if item:
+			var item_entity: ItemEntity = item_entity_scene.instantiate()
+			item_entity.item = item
+			item_entity.position = position
+			add_sibling(item_entity)
+			item_entity.spit()
+			pickup_item(null)
+	
+		
 func _physics_process(delta: float) -> void:
 	if velocity.x != 0:
 		slime_idle.emitting = false
