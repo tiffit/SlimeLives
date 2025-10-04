@@ -65,7 +65,8 @@ func kill_and_respawn(reason: KillReason) -> void:
 	await kill(reason)
 	if level:
 		get_node("/root/GameMain/GameUI/UI").heart_icon.play_swing()
-		level.respawn_character()
+		if level.lives >= 0:
+			level.respawn_character()
 
 func kill(reason: KillReason) -> void:
 	if dead:
