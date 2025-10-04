@@ -49,6 +49,8 @@ func move_camera():
 				camera.position.y = character.position.y
 				if (camera.position.y - viewport.size.y/2) < level_bounds.position.y:
 					camera.position.y = level_bounds.position.y + viewport.size.y/2
+				elif (camera.position.y + viewport.size.y/2) > level_bounds.end.y:
+					camera.position.y = level_bounds.end.y - viewport.size.y/2
 			
 			if viewport.size.x >= level_bounds.size.x:
 				camera.position.x = level_bounds.size.x / 2
@@ -56,6 +58,8 @@ func move_camera():
 				camera.position.x = character.position.x
 				if (camera.position.x - viewport.size.x/2) < level_bounds.position.x:
 					camera.position.x = level_bounds.position.x + viewport.size.x/2
+				elif (camera.position.x + viewport.size.x/2) > level_bounds.end.x:
+					camera.position.x = level_bounds.end.x - viewport.size.x/2
 
 func respawn_character():
 	if current_spawn:
