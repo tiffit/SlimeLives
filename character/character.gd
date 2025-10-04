@@ -14,6 +14,7 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var level: Level
 var dead: bool = false
 var item: Item = null
+var external_velocity: Vector2 = Vector2()
 
 enum KillReason { ENTITY, TILE, BOUNDS }
 
@@ -26,7 +27,6 @@ func _process(_delta: float) -> void:
 			add_sibling(item_entity)
 			item_entity.spit()
 			pickup_item(null)
-	
 		
 func _physics_process(delta: float) -> void:
 	if velocity.x != 0:
@@ -55,6 +55,9 @@ func _physics_process(delta: float) -> void:
 	# Jump
 	if is_on_floor() and Input.is_action_just_pressed("move_jump"):
 		velocity.y = -jump_speed
+	
+	velocity += external_velocity * delta
+	external_velocity = Vector2()
 	
 	# Do movement physics
 	move_and_slide()

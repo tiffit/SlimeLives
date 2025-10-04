@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://okfkb4hlv0s6"]
+
+[ext_resource type="Script" uid="uid://c35wdpu0vrqs8" path="res://entities/wind/wind.gd" id="1_5aigf"]
+[ext_resource type="Shader" uid="uid://t205r6o0ljo8" path="res://entities/wind/wind.gdshader" id="2_2cp28"]
+[ext_resource type="Texture2D" uid="uid://uvuvctit18ji" path="res://sprites/white.png" id="2_y1psr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2cp28"]
+seed = 1440
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hgn18"]
+width = 1024
+height = 1024
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_2cp28")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hgn18"]
+shader = ExtResource("2_2cp28")
+shader_parameter/noise = SubResource("NoiseTexture2D_hgn18")
+shader_parameter/size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cp28"]
+size = Vector2(50, 50)
+
+[node name="Wind" type="Area2D"]
+process_physics_priority = -5
+collision_layer = 0
+collision_mask = 47
+script = ExtResource("1_5aigf")
+size = Vector2(50, 50)
+strength = null
+metadata/_custom_type_script = "uid://c35wdpu0vrqs8"
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hgn18")
+scale = Vector2(50, 50)
+texture = ExtResource("2_y1psr")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2cp28")
+debug_color = Color(1, 1, 1, 0.07058824)
