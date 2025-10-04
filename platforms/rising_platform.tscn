@@ -10,6 +10,7 @@ size = Vector2(64, 64)
 size = Vector2(64, 5)
 
 [node name="RisingPlatform" type="AnimatableBody2D"]
+collision_layer = 32
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("2_0urw1")

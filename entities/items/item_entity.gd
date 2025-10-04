@@ -20,7 +20,10 @@ func update_render():
 		
 func spit():
 	pickup_cooldown = 0.2
-	call_deferred("apply_central_impulse", Vector2(0, -1000))
+	var mouse_pos: Vector2 = get_viewport().get_mouse_position() / get_viewport_rect().size
+	var angle: float = Vector2(.5, .5).angle_to_point(mouse_pos)
+	var launch_vector: Vector2 = Vector2(1.0, 0).rotated(angle)
+	call_deferred("apply_central_impulse", launch_vector * 1000)
 		
 func _process(delta: float) -> void:
 	pickup_cooldown = max(0, pickup_cooldown - delta)

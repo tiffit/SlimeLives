@@ -12,6 +12,7 @@ size = Vector2(64, 64)
 texture = SubResource("PlaceholderTexture2D_of8b0")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 shape = SubResource("RectangleShape2D_of8b0")
