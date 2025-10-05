@@ -22,5 +22,7 @@ func _on_player_entered(body: Node2D) -> void:
 			var level_name: String = game_main.current_level.level_name
 			if !(level_name in SaveHelper.data.completed):
 				SaveHelper.data.completed.append(level_name)
+				if game_main.current_level.got_collectible:
+					SaveHelper.data.collected.append(level_name)
 				SaveHelper.save_data()
 		game_main.load_next_level()

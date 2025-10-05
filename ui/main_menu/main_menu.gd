@@ -39,3 +39,8 @@ func _on_options_btn_pressed() -> void:
 	var options: OptionsMenu = options_menu_scene.instantiate()
 	options.should_remove_on_close = true
 	add_child(options)
+
+func _on_reset_save_data_btn_pressed() -> void:
+	SaveHelper.data = SaveData.new()
+	SaveHelper.save_data()
+	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")

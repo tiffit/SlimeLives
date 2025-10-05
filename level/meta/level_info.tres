@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelInfo" load_steps=14 format=3 uid="uid://r4hc1bpkd5e5"]
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=15 format=3 uid="uid://r4hc1bpkd5e5"]
 
 [ext_resource type="PackedScene" uid="uid://bgkjqy312t6v2" path="res://level/Forest_Levels/forest_1-1.tscn" id="1_2ttkn"]
 [ext_resource type="Script" uid="uid://bcjmhbod3nfm7" path="res://level/meta/level_info.gd" id="1_b4fff"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://j8jsu2f1v72y" path="res://level/Swamp_Levels/swamp_2-5.tscn" id="10_qbh71"]
 [ext_resource type="Texture2D" uid="uid://cp5hr0haae4bh" path="res://sprites/twisted_forest_bg.png" id="11_gd7e3"]
 [ext_resource type="Texture2D" uid="uid://baugcioefji7m" path="res://sprites/poison_swamp_bg.png" id="12_bim7u"]
+[ext_resource type="Texture2D" uid="uid://bvlbtkre0xfy5" path="res://sprites/witch tower bg.png" id="13_bim7u"]
 
 [resource]
 script = ExtResource("1_b4fff")
@@ -20,6 +21,6 @@ levels = Array[PackedScene]([ExtResource("1_2ttkn"), ExtResource("2_5h3dq"), Ext
 region_bgs = Dictionary[int, Texture2D]({
 0: ExtResource("11_gd7e3"),
 1: ExtResource("12_bim7u"),
-2: null
+2: ExtResource("13_bim7u")
 })
 metadata/_custom_type_script = "uid://bcjmhbod3nfm7"
