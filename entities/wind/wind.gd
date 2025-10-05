@@ -8,7 +8,7 @@
 		if Engine.is_editor_hint():
 			on_prop_changed()
 
-@export var strength: float = 10000:
+@export var strength: float = 100:
 	get:
 		return strength
 	set(value):
@@ -26,10 +26,15 @@ func _physics_process(delta: float) -> void:
 	if !Engine.is_editor_hint():
 		var push_vec: Vector2 = Vector2(strength, 0)
 		push_vec = push_vec.rotated(rotation)
-		push_vec /= Vector2(1, 5)
 		for body in get_overlapping_bodies():
 			if body is Character:
+				#push_vec /= Vector2(1, 5)
 				body.external_velocity = push_vec
+			elif body is Platform:
+				if body.affected_by_wind:
+					body.wind_velocity += push_vec
+			elif body is TaoAnchor:
+				body.wind_velocity += push_vec / 10
 
 func on_prop_changed():
 	if has_node("Shape") and has_node("Background"):

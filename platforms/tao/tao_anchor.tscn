@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dse8kagi4qjk5"]
+
+[ext_resource type="Script" uid="uid://b1pshsjbqy0cc" path="res://platforms/tao/tao_anchor.gd" id="1_c6fk3"]
+[ext_resource type="PackedScene" uid="uid://dlgu3d4s3wjs8" path="res://platforms/tao/tao_platform.tscn" id="2_rn8ym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6fk3"]
+size = Vector2(5, 5)
+
+[node name="TaoAnchor" type="RigidBody2D"]
+collision_layer = 32
+collision_mask = 4
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_c6fk3")
+platform_scene = ExtResource("2_rn8ym")
+metadata/_custom_type_script = "uid://b1pshsjbqy0cc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c6fk3")

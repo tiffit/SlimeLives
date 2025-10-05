@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and Input.is_action_just_pressed("move_jump"):
 		velocity.y = -jump_speed
 	
-	velocity += external_velocity * delta
+	velocity += external_velocity
 	external_velocity = Vector2()
 	
 	# Do movement physics

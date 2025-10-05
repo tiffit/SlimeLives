@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlgu3d4s3wjs8"]
+
+[ext_resource type="Script" uid="uid://cxx8nxai7lrug" path="res://platforms/tao/tao_platform.gd" id="1_3mekj"]
+[ext_resource type="Texture2D" uid="uid://hyn22hwytc1t" path="res://sprites/slime_platform.png" id="2_cqwa6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of8b0"]
+size = Vector2(60, 60)
+
+[node name="TaoPlatform" type="AnimatableBody2D"]
+collision_layer = 36
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("1_3mekj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_of8b0")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.5882353)
+scale = Vector2(5, 5)
+texture = ExtResource("2_cqwa6")

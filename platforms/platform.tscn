@@ -2,21 +2,21 @@
 
 [ext_resource type="Script" uid="uid://bkrqkfmcnha4e" path="res://platforms/platform.gd" id="1_64b0s"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_of8b0"]
-size = Vector2(64, 64)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of8b0"]
 size = Vector2(64, 64)
 
-[node name="Platform" type="Node2D"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_of8b0"]
+size = Vector2(64, 64)
+
+[node name="Platform" type="AnimatableBody2D"]
+collision_layer = 36
+collision_mask = 0
+sync_to_physics = false
 script = ExtResource("1_64b0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_of8b0")
+one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_of8b0")
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-collision_layer = 36
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-shape = SubResource("RectangleShape2D_of8b0")
-one_way_collision = true

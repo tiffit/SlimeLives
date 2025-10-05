@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3gggnc12laps"]
+
+[ext_resource type="PackedScene" uid="uid://dpxmmifbiyp45" path="res://entities/items/item_entity.tscn" id="1_4e5ci"]
+[ext_resource type="Resource" uid="uid://bas7f6qtkjofj" path="res://item/tao.tres" id="2_eg4ak"]
+[ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="3_kofvo"]
+
+[node name="Tao ItemEntity" instance=ExtResource("1_4e5ci")]
+item = ExtResource("2_eg4ak")
+
+[node name="ItemSprite" parent="." index="1"]
+texture = ExtResource("3_kofvo")
