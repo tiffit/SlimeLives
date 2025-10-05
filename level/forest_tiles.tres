@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://pej1rg0x8fu1" path="res://sprites/poison_swamp_tiles.png" id="1_gkkqi"]
 [ext_resource type="Texture2D" uid="uid://b1pk3flaa4uew" path="res://sprites/slimelives_tileset_1.png" id="1_kvmb7"]
-[ext_resource type="Shader" uid="uid://r8vnyccrqhit" path="res://swampwater.gdshader" id="1_wya5s"]
+[ext_resource type="Shader" path="res://swampwater.gdshader" id="1_wya5s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wya5s"]
 shader = ExtResource("1_wya5s")
@@ -1219,5 +1219,7 @@ terrain_set_1/terrain_4/name = "Dripleaf Small"
 terrain_set_1/terrain_4/color = Color(0.28125, 0.5, 0.25, 1)
 terrain_set_1/terrain_5/name = "Dripleaf Large"
 terrain_set_1/terrain_5/color = Color(0.25, 0.5, 0.3125, 1)
+custom_data_layer_0/name = "fragile"
+custom_data_layer_0/type = 1
 sources/2 = SubResource("TileSetAtlasSource_qohg2")
 sources/0 = SubResource("TileSetAtlasSource_wya5s")
