@@ -25,6 +25,10 @@ func load_next_level():
 		current_level.queue_free()
 	level_index += 1
 	
+	if Globals.next_level_index >= 0:
+		level_index = Globals.next_level_index
+		Globals.next_level_index = -1
+	
 	if level_index >= levels.size():
 		level_index = 0
 		

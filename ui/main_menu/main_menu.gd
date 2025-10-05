@@ -22,12 +22,13 @@ func load_save_data():
 			var level_name: String = level.level_name
 			level.queue_free()
 			if !(level_name in data.completed):
+				next_level_index = level_index
+				next_level_region = level_region
 				break
-			next_level_index = level_index
-			next_level_region = level_region
 	
 	if next_level_index > 0:
 		%PlayBtn.text = "Continue"
+		Globals.next_level_index = next_level_index
 	%Background.texture = level_info.region_bgs[next_level_region]
 
 func _on_play_btn_pressed() -> void:
