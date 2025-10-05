@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 				if body.affected_by_wind:
 					body.wind_velocity += push_vec
 			elif body is TaoAnchor:
-				body.wind_velocity += push_vec / 10
+				body.wind_velocity += push_vec
 
 func on_prop_changed():
 	if has_node("Shape") and has_node("Background"):

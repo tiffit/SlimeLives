@@ -1,7 +1,7 @@
 class_name TaoAnchor extends RigidBody2D
 
 @export var platform_scene: PackedScene
-@export var platform_distance: float = 100.0
+@export var platform_distance: float = 200.0
 
 var platform1: TaoPlatform #left
 var platform2: TaoPlatform #right
@@ -22,5 +22,5 @@ func _ready() -> void:
 	add_sibling(platform2)
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	linear_velocity = wind_velocity*state.step
+	linear_velocity = wind_velocity
 	wind_velocity = Vector2()
