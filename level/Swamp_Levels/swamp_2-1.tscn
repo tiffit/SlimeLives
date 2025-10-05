@@ -47,7 +47,7 @@ position = Vector2(2473, 473)
 position = Vector2(272, 117)
 
 [node name="EndPoint" parent="." index="7" instance=ExtResource("5_eu25f")]
-position = Vector2(5032, 485)
+position = Vector2(4898, 391)
 
 [node name="SpawnPoint" parent="." index="8" instance=ExtResource("6_m8mv3")]
 position = Vector2(107, 425)

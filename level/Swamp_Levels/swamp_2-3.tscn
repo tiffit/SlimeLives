@@ -46,10 +46,10 @@ position = Vector2(70, 472)
 position = Vector2(1153, 265)
 
 [node name="Collectible" parent="." index="8" instance=ExtResource("7_k8pfo")]
-position = Vector2(3802, 276)
+position = Vector2(3787, 228.00003)
 
 [node name="EndPoint" parent="." index="9" instance=ExtResource("8_jite2")]
-position = Vector2(4592, 511)
+position = Vector2(4544, 470)
 
 [node name="DeathPlane" type="Node2D" parent="." index="10"]
 script = ExtResource("9_f1j5y")

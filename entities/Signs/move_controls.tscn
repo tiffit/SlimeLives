@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://cw0aadyhnf7f7"]
+
+[ext_resource type="Texture2D" uid="uid://n6j162r8od55" path="res://sprites/sign_post.png" id="1_egm14"]
+[ext_resource type="Texture2D" uid="uid://dk6sadj7dpsks" path="res://sprites/sign 9 patch.png" id="1_f64s1"]
+[ext_resource type="Texture2D" uid="uid://cle6jb0fjyknb" path="res://sprites/slimelives_controls.png" id="2_egm14"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axx5l"]
+atlas = ExtResource("2_egm14")
+region = Rect2(0, 0, 80, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5o0v"]
+atlas = ExtResource("2_egm14")
+region = Rect2(80, 0, 80, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_246n4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axx5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5o0v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="move_controls" type="Control"]
+z_index = -1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 31.0
+offset_right = 57.0
+offset_bottom = 63.0
+texture = ExtResource("1_egm14")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 50.0
+texture = ExtResource("1_f64s1")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(50, 25)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_246n4")
+autoplay = "default"
+frame_progress = 0.32117662
