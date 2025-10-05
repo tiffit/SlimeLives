@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 			item_entity.item = item
 			item_entity.position = position
 			add_sibling(item_entity)
-			item_entity.spit()
+			item_entity.spit(self)
 			pickup_item(null)
 		
 func _physics_process(delta: float) -> void:

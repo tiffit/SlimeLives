@@ -18,11 +18,12 @@ func update_render():
 	else:
 		$ItemSprite.texture = null
 		
-func spit():
+func spit(character: Character):
 	pickup_cooldown = 0.2
 	$Area2D.monitoring = false
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position() / get_viewport_rect().size
-	var angle: float = Vector2(.5, .5).angle_to_point(mouse_pos)
+	var player_pos: Vector2 = character.get_global_transform_with_canvas().get_origin() / get_viewport_rect().size
+	var angle: float = player_pos.angle_to_point(mouse_pos)
 	var launch_vector: Vector2 = Vector2(1.0, 0).rotated(angle)
 	call_deferred("apply_central_impulse", launch_vector * 1000)
 		
