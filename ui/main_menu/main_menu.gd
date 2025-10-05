@@ -2,9 +2,33 @@ extends Node2D
 
 @export var options_menu_scene: PackedScene
 @export var game_main_scene: PackedScene
+@export var level_info: LevelInfo
+
+var next_level_index: int = 0
+var next_level_region: Level.LevelRegion = Level.LevelRegion.TWISTED_FOREST
 
 func _ready() -> void:
-	print(SaveHelper.data)
+	if(SaveHelper.is_ready):
+		load_save_data()
+	else:
+		SaveHelper.on_ready.connect(load_save_data)
+
+func load_save_data():
+	var data: SaveData = SaveHelper.data
+	if !data.completed.is_empty():
+		for level_index in range(level_info.levels.size()):
+			var level: Level = level_info.levels[level_index].instantiate()
+			var level_region: Level.LevelRegion = level.level_region
+			var level_name: String = level.level_name
+			level.queue_free()
+			if !(level_name in data.completed):
+				break
+			next_level_index = level_index
+			next_level_region = level_region
+	
+	if next_level_index > 0:
+		%PlayBtn.text = "Continue"
+	%Background.texture = level_info.region_bgs[next_level_region]
 
 func _on_play_btn_pressed() -> void:
 	get_tree().change_scene_to_packed(game_main_scene)

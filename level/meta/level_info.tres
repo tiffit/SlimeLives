@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=14 format=3 uid="uid://r4hc1bpkd5e5"]
+
+[ext_resource type="PackedScene" uid="uid://bgkjqy312t6v2" path="res://level/Forest_Levels/forest_1-1.tscn" id="1_2ttkn"]
+[ext_resource type="Script" uid="uid://bcjmhbod3nfm7" path="res://level/meta/level_info.gd" id="1_b4fff"]
+[ext_resource type="PackedScene" uid="uid://bi6m8cpvqwgoi" path="res://level/Forest_Levels/forest_1-2.tscn" id="2_5h3dq"]
+[ext_resource type="PackedScene" uid="uid://chcfhjemsra56" path="res://level/Forest_Levels/forest_1-3.tscn" id="3_gd7e3"]
+[ext_resource type="PackedScene" uid="uid://bj7wwxg5t1fdb" path="res://level/Forest_Levels/forest_1-4.tscn" id="4_bim7u"]
+[ext_resource type="PackedScene" uid="uid://22g50juuy51j" path="res://level/Forest_Levels/forest_1-5.tscn" id="5_m3uny"]
+[ext_resource type="PackedScene" uid="uid://cmks1gjdukxo6" path="res://level/Swamp_Levels/swamp_2-1.tscn" id="6_0iaxp"]
+[ext_resource type="PackedScene" uid="uid://drn2ipfkkag41" path="res://level/Swamp_Levels/swamp_2-2.tscn" id="7_prgnm"]
+[ext_resource type="PackedScene" uid="uid://b4g6wdvhr2g6c" path="res://level/Swamp_Levels/swamp_2-3.tscn" id="8_p3p1y"]
+[ext_resource type="PackedScene" uid="uid://7o6ehfbjh1x3" path="res://level/Swamp_Levels/swamp_2-4.tscn" id="9_sqwlc"]
+[ext_resource type="PackedScene" uid="uid://j8jsu2f1v72y" path="res://level/Swamp_Levels/swamp_2-5.tscn" id="10_qbh71"]
+[ext_resource type="Texture2D" uid="uid://cp5hr0haae4bh" path="res://sprites/twisted_forest_bg.png" id="11_gd7e3"]
+[ext_resource type="Texture2D" uid="uid://baugcioefji7m" path="res://sprites/poison_swamp_bg.png" id="12_bim7u"]
+
+[resource]
+script = ExtResource("1_b4fff")
+levels = Array[PackedScene]([ExtResource("1_2ttkn"), ExtResource("2_5h3dq"), ExtResource("3_gd7e3"), ExtResource("4_bim7u"), ExtResource("5_m3uny"), ExtResource("6_0iaxp"), ExtResource("7_prgnm"), ExtResource("8_p3p1y"), ExtResource("9_sqwlc"), ExtResource("10_qbh71")])
+region_bgs = Dictionary[int, Texture2D]({
+0: ExtResource("11_gd7e3"),
+1: ExtResource("12_bim7u"),
+2: null
+})
+metadata/_custom_type_script = "uid://bcjmhbod3nfm7"

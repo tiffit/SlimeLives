@@ -1,6 +1,13 @@
 @tool class_name Level extends Node2D
 
+enum LevelRegion {
+	TWISTED_FOREST,
+	POISON_SWAMP,
+	WITCH_TOWER
+}
+
 @export var level_name: String = "Unnamed"
+@export var level_region: LevelRegion = LevelRegion.TWISTED_FOREST
 @export var level_width: int = 72
 @export var level_height: int = 40
 const tile_size: int = 16
