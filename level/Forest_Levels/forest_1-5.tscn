@@ -87,7 +87,7 @@ position = Vector2(1604, 1746)
 shape = SubResource("RectangleShape2D_owixw")
 
 [node name="Crucifix ItemEntity" parent="." index="10" instance=ExtResource("6_xk60w")]
-position = Vector2(605, 341)
+position = Vector2(1320, 246)
 
 [node name="Checkpoint" parent="." index="11" instance=ExtResource("9_bms7n")]
 position = Vector2(2155, 419.00003)

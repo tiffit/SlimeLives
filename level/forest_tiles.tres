@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://pej1rg0x8fu1" path="res://sprites/poison_swamp_tiles.png" id="1_gkkqi"]
 [ext_resource type="Texture2D" uid="uid://b1pk3flaa4uew" path="res://sprites/slimelives_tileset_1.png" id="1_kvmb7"]
-[ext_resource type="Shader" path="res://swampwater.gdshader" id="1_wya5s"]
+[ext_resource type="Shader" uid="uid://r8vnyccrqhit" path="res://swampwater.gdshader" id="1_wya5s"]
 [ext_resource type="Texture2D" uid="uid://b0a3h8fsq4m3p" path="res://sprites/witch tower.png" id="3_rnk7n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wya5s"]
@@ -212,7 +212,7 @@ texture = ExtResource("1_gkkqi")
 0:5/0 = 0
 0:5/0/modulate = Color(1, 1, 1, 0.78431374)
 0:5/0/material = SubResource("ShaderMaterial_wya5s")
-0:5/0/z_index = 1
+0:5/0/z_index = 10
 0:5/0/terrain_set = 1
 0:5/0/terrain = 3
 0:5/0/terrains_peering_bit/right_side = 3
@@ -287,7 +287,7 @@ texture = ExtResource("1_gkkqi")
 0:6/0 = 0
 0:6/0/modulate = Color(1, 1, 1, 0.78431374)
 0:6/0/material = SubResource("ShaderMaterial_wya5s")
-0:6/0/z_index = 1
+0:6/0/z_index = 10
 0:6/0/terrain_set = 1
 0:6/0/terrain = 3
 0:6/0/terrains_peering_bit/right_side = 3
