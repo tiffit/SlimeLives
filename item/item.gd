@@ -6,7 +6,7 @@ class_name Item extends Resource
 @export var explode: bool = false
 @export var animation: PackedScene
 @export var explosion: PackedScene
-const explosion_radius = 4
+const explosion_radius = 2
 
 static func create_explosion(node: Node2D):
 	var item_tile_pos: Vector2 = node.position / 5 / 16

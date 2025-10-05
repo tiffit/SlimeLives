@@ -1,15 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca67v05xhnwjs"]
+[gd_scene load_steps=10 format=3 uid="uid://ca67v05xhnwjs"]
 
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_hh0ni"]
 [ext_resource type="PackedScene" uid="uid://b6s81vj35ojfv" path="res://level/Witch_Tower_Levels/parallax_bg_3.tscn" id="2_3e2kf"]
 [ext_resource type="TileSet" uid="uid://ckh3xbhrp7k4h" path="res://level/forest_tiles.tres" id="3_o2slr"]
+[ext_resource type="Script" uid="uid://cmxrkn8rph7j" path="res://entities/traps/death_plane.gd" id="4_r4fe7"]
+[ext_resource type="PackedScene" uid="uid://dtt118ueqyaud" path="res://entities/items/bomb_item_entity.tscn" id="5_0uxs5"]
+[ext_resource type="PackedScene" uid="uid://dx0nkt1qhhdbj" path="res://entities/level_objective/checkpoint.tscn" id="6_nvivw"]
+[ext_resource type="PackedScene" uid="uid://cm5i1i701d0vy" path="res://entities/level_objective/collectible.tscn" id="7_l8h55"]
+[ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/level_objective/end_point.tscn" id="8_h7afd"]
+[ext_resource type="PackedScene" uid="uid://d36mkbo8wp7b6" path="res://entities/level_objective/spawn_point.tscn" id="9_vu7ha"]
 
 [node name="Level" instance=ExtResource("1_hh0ni")]
-level_name = "3-4 C"
+level_name = "3-4 Destruction of Property"
 level_region = 2
+level_width = 120
+level_height = 120
 
-[node name="Parallax_BG_3" parent="." index="0" instance=ExtResource("2_3e2kf")]
+[node name="Bomb ItemEntity" parent="." index="0" instance=ExtResource("5_0uxs5")]
+position = Vector2(402, 982)
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="." index="1"]
+[node name="Checkpoint" parent="." index="1" instance=ExtResource("6_nvivw")]
+position = Vector2(574, 1105)
+
+[node name="Collectible" parent="." index="2" instance=ExtResource("7_l8h55")]
+position = Vector2(638, 963)
+
+[node name="EndPoint" parent="." index="3" instance=ExtResource("8_h7afd")]
+position = Vector2(998, 1082)
+
+[node name="SpawnPoint" parent="." index="4" instance=ExtResource("9_vu7ha")]
+position = Vector2(124, 1168)
+
+[node name="Parallax_BG_3" parent="." index="5" instance=ExtResource("2_3e2kf")]
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." index="6"]
 scale = Vector2(5, 5)
 tile_set = ExtResource("3_o2slr")
+
+[node name="DeathPlane" type="Node2D" parent="." index="9"]
+script = ExtResource("4_r4fe7")
+metadata/_custom_type_script = "uid://cmxrkn8rph7j"
+
+[node name="Area2D" type="Area2D" parent="DeathPlane" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane/Area2D" index="0"]

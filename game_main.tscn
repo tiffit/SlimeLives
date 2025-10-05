@@ -24,7 +24,7 @@
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_lbacn")
 levels = Array[PackedScene]([ExtResource("2_hyuye"), ExtResource("4_1gux0"), ExtResource("3_33xix"), ExtResource("2_qim32"), ExtResource("6_xlhmb"), ExtResource("7_1va6x"), ExtResource("8_0wknm"), ExtResource("9_bgx3e"), ExtResource("10_bs5u5"), ExtResource("11_bgx3e"), ExtResource("12_bs5u5"), ExtResource("13_sb12t"), ExtResource("14_m6n1o"), ExtResource("15_ionct"), ExtResource("16_24pvi")])
-force_level = ExtResource("14_m6n1o")
+force_level = ExtResource("15_ionct")
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 
