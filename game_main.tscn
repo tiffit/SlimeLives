@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://m7gbndc4ljw5"]
+[gd_scene load_steps=15 format=3 uid="uid://m7gbndc4ljw5"]
 
 [ext_resource type="Script" uid="uid://dk4jl6v1yleau" path="res://game_main.gd" id="1_lbacn"]
 [ext_resource type="PackedScene" uid="uid://bgkjqy312t6v2" path="res://level/Forest_Levels/forest_1-1.tscn" id="2_hyuye"]
@@ -10,11 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://ck3l1081gunhp" path="res://ui/scene_transition/scene_transition.tscn" id="5_33xix"]
 [ext_resource type="PackedScene" uid="uid://emg3mefkn652" path="res://ui/vignette/vignette.tscn" id="6_8tpvh"]
 [ext_resource type="PackedScene" uid="uid://22g50juuy51j" path="res://level/Forest_Levels/forest_1-5.tscn" id="6_xlhmb"]
+[ext_resource type="PackedScene" uid="uid://cmks1gjdukxo6" path="res://level/Swamp_Levels/swamp_2-1.tscn" id="7_1va6x"]
+[ext_resource type="PackedScene" uid="uid://drn2ipfkkag41" path="res://level/Swamp_Levels/swamp_2-2.tscn" id="8_0wknm"]
+[ext_resource type="PackedScene" uid="uid://b4g6wdvhr2g6c" path="res://level/Swamp_Levels/swamp_2-3.tscn" id="9_bgx3e"]
+[ext_resource type="PackedScene" uid="uid://7o6ehfbjh1x3" path="res://level/Swamp_Levels/swamp_2-4.tscn" id="10_bs5u5"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_lbacn")
-levels = Array[PackedScene]([ExtResource("2_hyuye"), ExtResource("4_1gux0"), ExtResource("3_33xix"), ExtResource("2_qim32"), ExtResource("6_xlhmb")])
-force_level = ExtResource("6_xlhmb")
+levels = Array[PackedScene]([ExtResource("2_hyuye"), ExtResource("4_1gux0"), ExtResource("3_33xix"), ExtResource("2_qim32"), ExtResource("6_xlhmb"), ExtResource("7_1va6x"), ExtResource("8_0wknm"), ExtResource("9_bgx3e"), ExtResource("10_bs5u5")])
+force_level = ExtResource("8_0wknm")
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 

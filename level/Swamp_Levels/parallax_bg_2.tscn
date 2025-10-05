@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7jw3eq10ioia"]
+
+[ext_resource type="Texture2D" uid="uid://baugcioefji7m" path="res://sprites/poison_swamp_bg.png" id="1_14ro1"]
+
+[node name="Parallax_BG_2" type="Node2D"]
+z_index = -99
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1152, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(576.00006, 324)
+scale = Vector2(9.000001, 8.999999)
+texture = ExtResource("1_14ro1")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 72)

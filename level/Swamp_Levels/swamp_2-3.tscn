@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4g6wdvhr2g6c"]
+
+[ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_c2ook"]
+[ext_resource type="PackedScene" uid="uid://b7jw3eq10ioia" path="res://level/Swamp_Levels/parallax_bg_2.tscn" id="2_6cogi"]
+
+[node name="Level" instance=ExtResource("1_c2ook")]
+level_name = "2-3 The Tao of Meow"
+
+[node name="Parallax_BG_2" parent="." index="2" instance=ExtResource("2_6cogi")]
