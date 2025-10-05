@@ -13,3 +13,9 @@ class_name LevelInfo extends Resource
 	Level.LevelRegion.POISON_SWAMP: null,
 	Level.LevelRegion.WITCH_TOWER: null,
 }
+
+@export var region_music: Dictionary[Level.LevelRegion, AudioStream] = {
+	Level.LevelRegion.TWISTED_FOREST: null,
+	Level.LevelRegion.POISON_SWAMP: null,
+	Level.LevelRegion.WITCH_TOWER: null,
+}

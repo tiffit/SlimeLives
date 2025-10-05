@@ -23,6 +23,7 @@ buses/default_bus_layout="res://audio/default_bus_layout.tres"
 
 Globals="*res://globals.gd"
 SaveHelper="*res://save/save_helper.gd"
+MusicController="*res://audio/music_controller.gd"
 
 [display]
 

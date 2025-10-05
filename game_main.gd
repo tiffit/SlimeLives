@@ -2,7 +2,7 @@ class_name GameMain extends Node2D
 
 signal i_died()
 
-@export var levels: Array[PackedScene] = [] 
+@export var level_info: LevelInfo
 # If set, the level loaded will always be this level
 @export var force_level: PackedScene = null
 
@@ -29,13 +29,14 @@ func load_next_level():
 		level_index = Globals.next_level_index
 		Globals.next_level_index = -1
 	
-	if level_index >= levels.size():
+	if level_index >= level_info.levels.size():
 		level_index = 0
 		
-	var next_level_scene: PackedScene = force_level if force_level else levels[level_index]
+	var next_level_scene: PackedScene = force_level if force_level else level_info.levels[level_index]
 	current_level = next_level_scene.instantiate()
 	current_level.name = "Level"
 	add_child(current_level)
 	Globals.find_my_level.emit(current_level)
 	if current_level.level_name != previous_level_name:
 		$GameUI/UI.show_level_name(current_level.level_name)
+	MusicController.play_music(level_info.region_music[current_level.level_region])

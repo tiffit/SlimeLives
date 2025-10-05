@@ -1,16 +1,28 @@
 class_name CrossFadePlayer extends Node
 
-@export var stream: AudioStream
+@export var stream: AudioStream:
+	get:
+		return stream
+	set(value):
+		stream = value
+		if has_node("Player1"):
+			get_node("Player1").stream = value
+		if has_node("Player2"):
+			get_node("Player2").stream = value
+		
 @export_range(0, 1) var fade_percent: float = 0.1
 
 var playing: bool = false
 var flipped: bool = false
 
 func _ready() -> void:
-	$Player1.stream = stream
-	$Player2.stream = stream
+	if stream:
+		$Player1.stream = stream
+		$Player2.stream = stream
 
 func _process(delta: float) -> void:
+	if !stream:
+		return
 	if get_progress() > (1-fade_percent):
 		var fade_progress = (get_progress() - (1-fade_percent)) / fade_percent
 		get_active_player().volume_linear = 1 - fade_progress
@@ -29,6 +41,11 @@ func get_alt_player() -> AudioStreamPlayer:
 func get_progress():
 	var pos: float = get_active_player().get_playback_position()
 	return pos / stream.get_length()
+
+func force_play():
+	if playing:
+		stop()
+	play()
 
 func play():
 	if playing:

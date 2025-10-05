@@ -31,6 +31,7 @@ func load_save_data():
 		%PlayBtn.text = "Continue"
 		Globals.next_level_index = next_level_index
 	%Background.texture = level_info.region_bgs[next_level_region]
+	MusicController.play_music(level_info.region_music[next_level_region])
 
 func _on_play_btn_pressed() -> void:
 	get_tree().change_scene_to_packed(game_main_scene)

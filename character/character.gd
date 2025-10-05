@@ -78,6 +78,15 @@ func _physics_process(delta: float) -> void:
 	velocity += external_velocity
 	external_velocity = Vector2()
 	
+	if is_on_floor():
+		if velocity.x != 0:
+			if !%WalkSound.playing:
+				%WalkSound.play()
+		else:
+			%WalkSound.stop()
+	else:
+		%WalkSound.stop()
+	
 	# Do movement physics
 	move_and_slide()
 
