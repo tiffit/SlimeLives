@@ -33,6 +33,8 @@ func _process(_delta: float) -> void:
 				$BombTimer.stop()
 			item_entity.spit(self, explode_time)
 			pickup_item(null)
+			%SpitSound.pitch_scale = rng.randf_range(0.8, 1.2)
+			%SpitSound.play()
 		
 func _physics_process(delta: float) -> void:
 	if velocity.x != 0:
@@ -112,6 +114,7 @@ func pickup_item(item: Item):
 		$ItemSprite.texture = item.texture
 		if item.explode:
 			$BombTimer.start()
+		%PickUpItemSound.play()
 	else:
 		$ItemSprite.texture = null
 
