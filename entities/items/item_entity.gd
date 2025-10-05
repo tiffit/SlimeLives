@@ -1,4 +1,5 @@
 @tool class_name ItemEntity extends RigidBody2D
+@onready var item_sprite: Sprite2D = $ItemSprite
 
 @export var item: Item:
 	get:
@@ -57,4 +58,9 @@ func _on_player_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	if item.explode:
 		Item.create_explosion(self)
-		queue_free()
+		if item.explosion:
+			var explode = item.explosion.instantiate()
+			add_child(explode)
+			item_sprite.modulate = Color(1, 1, 1, 0)
+			await get_tree().create_timer(1).timeout
+			queue_free()

@@ -18,6 +18,7 @@ size = Vector2(485, 30)
 
 [node name="Level" instance=ExtResource("1_c2ook")]
 level_name = "2-3 The Tao of Meow"
+level_region = 1
 level_width = 300
 level_height = 65
 

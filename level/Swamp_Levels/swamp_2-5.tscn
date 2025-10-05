@@ -35,6 +35,7 @@ size = Vector2(485, 30)
 
 [node name="Level" instance=ExtResource("1_gpbp0")]
 level_name = "2-5 Updraft"
+level_region = 1
 level_width = 80
 level_height = 300
 

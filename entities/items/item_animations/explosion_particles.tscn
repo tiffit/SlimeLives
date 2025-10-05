@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcpu36wcg5mid"]
+
+[ext_resource type="Texture2D" uid="uid://cnpchsfrxajoe" path="res://sprites/circle_particle.png" id="1_dlf8u"]
+
+[sub_resource type="Curve" id="Curve_dprsn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49635038, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sesxa"]
+curve = SubResource("Curve_dprsn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sejpq"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 40.0
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, -300, 0)
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_sesxa")
+color = Color(1, 0.3647059, 0.11372549, 0.5882353)
+hue_variation_min = -0.09000002
+hue_variation_max = 0.14999998
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+scale = Vector2(5, 5)
+amount = 40
+texture = ExtResource("1_dlf8u")
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_sejpq")

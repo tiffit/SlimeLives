@@ -21,6 +21,7 @@ size = Vector2(2080, 120)
 
 [node name="Level" instance=ExtResource("1_cnw2u")]
 level_name = "2-1 There's Always a Poison Swamp..."
+level_region = 1
 level_width = 320
 level_height = 50
 
