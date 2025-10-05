@@ -2,6 +2,7 @@ extends Node2D
 
 @export var options_menu_scene: PackedScene
 @export var game_main_scene: PackedScene
+@export var level_select_scene: PackedScene
 @export var level_info: LevelInfo
 
 var next_level_index: int = 0
@@ -33,6 +34,10 @@ func load_save_data():
 
 func _on_play_btn_pressed() -> void:
 	get_tree().change_scene_to_packed(game_main_scene)
+
+func _on_lvl_select_btn_pressed() -> void:
+	Globals.menu_background = %Background.texture
+	get_tree().change_scene_to_packed(level_select_scene)
 
 func _on_options_btn_pressed() -> void:
 	print("test")

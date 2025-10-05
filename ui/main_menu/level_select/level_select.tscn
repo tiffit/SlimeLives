@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://blxid2eq3l7ek"]
+
+[ext_resource type="FontFile" uid="uid://dc7dxafyie71e" path="res://sprites/ComicRelief-Regular.ttf" id="1_2jn78"]
+[ext_resource type="Script" uid="uid://sqkgg0buo08i" path="res://ui/main_menu/level_select/level_select.gd" id="1_g1e4q"]
+[ext_resource type="Resource" uid="uid://r4hc1bpkd5e5" path="res://level/meta/level_info.tres" id="3_4m5hy"]
+[ext_resource type="PackedScene" uid="uid://br00wk78vx0fq" path="res://ui/main_menu/level_select/select_level_button.tscn" id="3_mtk3m"]
+[ext_resource type="PackedScene" uid="uid://m7gbndc4ljw5" path="res://game_main.tscn" id="4_d4iee"]
+[ext_resource type="Texture2D" uid="uid://5xsdkdljfjvm" path="res://sprites/fish bone blank.png" id="5_kcff3"]
+[ext_resource type="PackedScene" uid="uid://dsv1u05ardgw3" path="res://ui/main_menu/level_select/region_label.tscn" id="7_cwm4p"]
+
+[node name="LevelSelect" type="Node2D"]
+script = ExtResource("1_g1e4q")
+level_select_button_scene = ExtResource("3_mtk3m")
+level_info = ExtResource("3_4m5hy")
+game_main_scene = ExtResource("4_d4iee")
+blank_collectible = ExtResource("5_kcff3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -230.5
+offset_top = 7.0
+offset_right = 230.5
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.80784315, 0.5294118, 0.5294118, 1)
+theme_override_colors/font_outline_color = Color(0.09803922, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("1_2jn78")
+theme_override_font_sizes/font_size = 64
+text = "Level Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ForestLevels" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" parent="CanvasLayer/HBoxContainer/ForestLevels" instance=ExtResource("7_cwm4p")]
+layout_mode = 2
+
+[node name="SwampLevels" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" parent="CanvasLayer/HBoxContainer/SwampLevels" instance=ExtResource("7_cwm4p")]
+layout_mode = 2
+text = "Poison Swamp"
+
+[node name="TowerLevels" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" parent="CanvasLayer/HBoxContainer/TowerLevels" instance=ExtResource("7_cwm4p")]
+layout_mode = 2
+text = "Witch's Tower"
