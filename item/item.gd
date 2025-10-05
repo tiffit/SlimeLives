@@ -4,3 +4,4 @@ class_name Item extends Resource
 @export var texture: Texture2D
 @export var platform: PackedScene
 @export var explode: bool = false
+@export var animation: PackedScene

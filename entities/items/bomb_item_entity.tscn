@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dpxmmifbiyp45" path="res://entities/items/item_entity.tscn" id="1_0wvnu"]
 [ext_resource type="Resource" uid="uid://cliqj4nhtnmeq" path="res://item/bomb.tres" id="2_cmr71"]
-[ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="3_lo4vw"]
+[ext_resource type="Texture2D" uid="uid://7l1m40wd18rk" path="res://sprites/pipe_bomb_real.png" id="3_cmr71"]
 
 [node name="Bomb ItemEntity" instance=ExtResource("1_0wvnu")]
 item = ExtResource("2_cmr71")
 
 [node name="ItemSprite" parent="." index="1"]
-texture = ExtResource("3_lo4vw")
+texture = ExtResource("3_cmr71")

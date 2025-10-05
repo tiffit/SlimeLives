@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b4g6wdvhr2g6c"]
+[gd_scene load_steps=15 format=4 uid="uid://b4g6wdvhr2g6c"]
 
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_c2ook"]
 [ext_resource type="TileSet" uid="uid://ckh3xbhrp7k4h" path="res://level/forest_tiles.tres" id="2_2we26"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ew2thp3ltsmj" path="res://entities/level_objective/end_point.tscn" id="8_jite2"]
 [ext_resource type="Script" uid="uid://cmxrkn8rph7j" path="res://entities/traps/death_plane.gd" id="9_f1j5y"]
 [ext_resource type="PackedScene" uid="uid://okfkb4hlv0s6" path="res://entities/wind/wind.tscn" id="10_lhnfs"]
+[ext_resource type="PackedScene" uid="uid://cwjtkcsivxh18" path="res://entities/activatable/door.tscn" id="11_k8pfo"]
+[ext_resource type="PackedScene" uid="uid://nemv2jkl7tnn" path="res://entities/activatable/pressure_plate.tscn" id="12_jite2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glvb1"]
 size = Vector2(3519.25, 90.5)
@@ -37,7 +39,7 @@ position = Vector2(1500, 249)
 size = Vector2(3000, 500)
 
 [node name="Tao ItemEntity" parent="." index="5" instance=ExtResource("4_glvb1")]
-position = Vector2(264, 563)
+position = Vector2(2995, 490)
 
 [node name="SpawnPoint" parent="." index="6" instance=ExtResource("5_lhnfs")]
 position = Vector2(70, 472)
@@ -64,3 +66,12 @@ shape = SubResource("RectangleShape2D_glvb1")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathPlane/Area2D" index="1"]
 position = Vector2(1242.75, 385)
 shape = SubResource("RectangleShape2D_lhnfs")
+
+[node name="Door" parent="." index="11" instance=ExtResource("11_k8pfo")]
+position = Vector2(517, 262)
+
+[node name="PressurePlate" parent="." index="12" instance=ExtResource("12_jite2")]
+position = Vector2(753, 449.00006)
+
+[node name="Tao ItemEntity2" parent="." index="13" instance=ExtResource("4_glvb1")]
+position = Vector2(145, 556)

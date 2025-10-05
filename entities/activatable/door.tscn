@@ -1,20 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwjtkcsivxh18"]
 
-[ext_resource type="Texture2D" uid="uid://uvuvctit18ji" path="res://sprites/white.png" id="1_30eeh"]
 [ext_resource type="Script" uid="uid://bvi2l7hhmvuwo" path="res://entities/activatable/door.gd" id="1_hn6nv"]
+[ext_resource type="Texture2D" uid="uid://p17i2qi1lxqh" path="res://sprites/slime_door.png" id="2_hn6nv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51vci"]
 size = Vector2(20, 40)
 
 [node name="Door" type="StaticBody2D" groups=["activatable"]]
+scale = Vector2(5, 5)
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_hn6nv")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.7683716e-07, 9.536743e-07)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_hn6nv")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_51vci")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.31, 0.8735, 1, 1)
-scale = Vector2(20, 40)
-texture = ExtResource("1_30eeh")

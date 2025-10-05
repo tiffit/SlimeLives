@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bas7f6qtkjofj"]
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bas7f6qtkjofj"]
 
 [ext_resource type="PackedScene" uid="uid://dse8kagi4qjk5" path="res://platforms/tao/tao_anchor.tscn" id="1_pabn7"]
+[ext_resource type="PackedScene" uid="uid://dpclds8wlqq8v" path="res://entities/items/item_animations/tao_animation.tscn" id="1_vcmd3"]
 [ext_resource type="Script" uid="uid://bsdwt2vlrfkic" path="res://item/item.gd" id="2_vcmd3"]
-[ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="3_e07kk"]
+[ext_resource type="Texture2D" uid="uid://c7lw0sxaif0qe" path="res://sprites/tao.png" id="3_pabn7"]
 
 [resource]
 script = ExtResource("2_vcmd3")
 item_name = "Tao"
-texture = ExtResource("3_e07kk")
+texture = ExtResource("3_pabn7")
 platform = ExtResource("1_pabn7")
+animation = ExtResource("1_vcmd3")
 metadata/_custom_type_script = "uid://bsdwt2vlrfkic"

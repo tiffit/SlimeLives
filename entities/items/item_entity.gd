@@ -13,6 +13,10 @@ const explosion_radius = 4
 
 func _ready() -> void:
 	update_render()
+	if item.animation:
+		var anim = item.animation.instantiate()
+		add_child(anim)
+		anim.play("idle")
 
 func update_render():
 	if item:
@@ -31,6 +35,7 @@ func spit(character: Character):
 	var angle: float = player_pos.angle_to_point(mouse_pos)
 	var launch_vector: Vector2 = Vector2(1.0, 0).rotated(angle)
 	call_deferred("apply_central_impulse", launch_vector * 1000)
+	
 		
 func _process(delta: float) -> void:
 	if !Engine.is_editor_hint():
@@ -61,4 +66,3 @@ func _on_timer_timeout() -> void:
 							if tile_data.has_custom_data("fragile") and tile_data.get_custom_data("fragile"):
 								child.erase_cell(int_tile_pos)
 		queue_free()
-	

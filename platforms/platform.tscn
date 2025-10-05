@@ -1,12 +1,100 @@
-[gd_scene load_steps=4 format=3 uid="uid://voxgl40mko7a"]
+[gd_scene load_steps=16 format=3 uid="uid://voxgl40mko7a"]
 
 [ext_resource type="Script" uid="uid://bkrqkfmcnha4e" path="res://platforms/platform.gd" id="1_64b0s"]
+[ext_resource type="Texture2D" uid="uid://dwpyksylpuw7" path="res://sprites/default soul anim.png" id="2_w7mls"]
+[ext_resource type="Texture2D" uid="uid://cnpchsfrxajoe" path="res://sprites/circle_particle.png" id="3_avbr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of8b0"]
 size = Vector2(64, 64)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_of8b0"]
-size = Vector2(64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_avbr7"]
+atlas = ExtResource("2_w7mls")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l1pk"]
+atlas = ExtResource("2_w7mls")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m873u"]
+atlas = ExtResource("2_w7mls")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0awul"]
+atlas = ExtResource("2_w7mls")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7es2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avbr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l1pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m873u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0awul")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_w7mls"]
+resource_name = "bob"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_avbr7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xhqsd"]
+_data = {
+&"RESET": SubResource("Animation_avbr7"),
+&"bob": SubResource("Animation_w7mls")
+}
+
+[sub_resource type="Curve" id="Curve_0awul"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a7es2"]
+curve = SubResource("Curve_0awul")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qt4bt"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 30, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_a7es2")
+color = Color(0.30980393, 1, 1, 0.5882353)
 
 [node name="Platform" type="AnimatableBody2D"]
 collision_layer = 36
@@ -18,5 +106,24 @@ script = ExtResource("1_64b0s")
 shape = SubResource("RectangleShape2D_of8b0")
 one_way_collision = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_of8b0")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.78431374)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_a7es2")
+autoplay = "default"
+frame = 1
+frame_progress = 0.493288
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xhqsd")
+}
+autoplay = "bob"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 25)
+amount = 6
+texture = ExtResource("3_avbr7")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_qt4bt")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://pej1rg0x8fu1" path="res://sprites/poison_swamp_tiles.png" id="1_gkkqi"]
 [ext_resource type="Texture2D" uid="uid://b1pk3flaa4uew" path="res://sprites/slimelives_tileset_1.png" id="1_kvmb7"]
-[ext_resource type="Shader" path="res://swampwater.gdshader" id="1_wya5s"]
+[ext_resource type="Shader" uid="uid://r8vnyccrqhit" path="res://swampwater.gdshader" id="1_wya5s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wya5s"]
 shader = ExtResource("1_wya5s")

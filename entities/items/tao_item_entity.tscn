@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3gggnc12laps"]
+[gd_scene load_steps=6 format=3 uid="uid://b3gggnc12laps"]
 
 [ext_resource type="PackedScene" uid="uid://dpxmmifbiyp45" path="res://entities/items/item_entity.tscn" id="1_4e5ci"]
 [ext_resource type="Resource" uid="uid://bas7f6qtkjofj" path="res://item/tao.tres" id="2_eg4ak"]
-[ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="3_kofvo"]
+[ext_resource type="Shader" uid="uid://yofj2uafmmk" path="res://entities/items/item_entity.gdshader" id="3_kofvo"]
+[ext_resource type="Texture2D" uid="uid://c7lw0sxaif0qe" path="res://sprites/tao.png" id="4_ovhu8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1t27x"]
+shader = ExtResource("3_kofvo")
+shader_parameter/allow_out_of_bounds = true
+shader_parameter/outline_thickness = 4.0
+shader_parameter/outline_color = Color(1, 1, 0.14509805, 0.78431374)
 
 [node name="Tao ItemEntity" instance=ExtResource("1_4e5ci")]
 item = ExtResource("2_eg4ak")
 
 [node name="ItemSprite" parent="." index="1"]
-texture = ExtResource("3_kofvo")
+material = SubResource("ShaderMaterial_1t27x")
+texture = ExtResource("4_ovhu8")

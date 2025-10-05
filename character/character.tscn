@@ -1,15 +1,51 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5gxdv8qm44mq"]
+[gd_scene load_steps=24 format=3 uid="uid://c5gxdv8qm44mq"]
 
 [ext_resource type="Script" uid="uid://cf7sweyu1ado0" path="res://character/character.gd" id="1_yf0e5"]
 [ext_resource type="PackedScene" uid="uid://voxgl40mko7a" path="res://platforms/platform.tscn" id="2_1l1n4"]
-[ext_resource type="Texture2D" uid="uid://bf2agy1m54ru2" path="res://sprites/slime_body.png" id="3_0rvpn"]
 [ext_resource type="Texture2D" uid="uid://b7anm3eacs6of" path="res://sprites/slime_tail.png" id="3_dy06j"]
 [ext_resource type="PackedScene" uid="uid://dpxmmifbiyp45" path="res://entities/items/item_entity.tscn" id="3_qkjfd"]
 [ext_resource type="PackedScene" uid="uid://dcqdrha0xmhky" path="res://character/slime_trail.tscn" id="3_ugqs2"]
 [ext_resource type="PackedScene" uid="uid://dikjvea3lgpow" path="res://character/slime_idle.tscn" id="4_hx151"]
+[ext_resource type="Texture2D" uid="uid://dilelqriw68bg" path="res://sprites/slime walk sheet.png" id="4_qkjfd"]
 [ext_resource type="Texture2D" uid="uid://dsde05vy6jkok" path="res://sprites/slime_ears.png" id="6_o6jyn"]
 [ext_resource type="Texture2D" uid="uid://b5s5ahtr3lkmn" path="res://sprites/slime_face.png" id="7_tgjim"]
 [ext_resource type="Texture2D" uid="uid://dsk6134a75vfr" path="res://sprites/slime_arms.png" id="8_wy5t8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx66j"]
+atlas = ExtResource("4_qkjfd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8brn5"]
+atlas = ExtResource("4_qkjfd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4qc5"]
+atlas = ExtResource("4_qkjfd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd715"]
+atlas = ExtResource("4_qkjfd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hq3og"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx66j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8brn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4qc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd715")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6jyn"]
 size = Vector2(65, 63)
@@ -356,10 +392,12 @@ script = ExtResource("1_yf0e5")
 platform_scene = ExtResource("2_1l1n4")
 item_entity_scene = ExtResource("3_qkjfd")
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="Body" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.5882353)
 scale = Vector2(5, 4.545)
-texture = ExtResource("3_0rvpn")
+sprite_frames = SubResource("SpriteFrames_hq3og")
+autoplay = "default"
+frame_progress = 0.22912166
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

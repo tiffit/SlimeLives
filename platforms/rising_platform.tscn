@@ -1,10 +1,47 @@
-[gd_scene load_steps=8 format=3 uid="uid://chg4vguq7bhvb"]
+[gd_scene load_steps=17 format=3 uid="uid://chg4vguq7bhvb"]
 
 [ext_resource type="Script" uid="uid://b1la0vajivmt0" path="res://platforms/rising_platform.gd" id="2_0urw1"]
-[ext_resource type="Texture2D" uid="uid://hyn22hwytc1t" path="res://sprites/slime_platform.png" id="2_cfbwp"]
+[ext_resource type="Texture2D" uid="uid://csycu7pltj8jx" path="res://sprites/crucifix soul anim.png" id="2_cfbwp"]
+[ext_resource type="Texture2D" uid="uid://cnpchsfrxajoe" path="res://sprites/circle_particle.png" id="3_cfbwp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of8b0"]
 size = Vector2(60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3thrn"]
+atlas = ExtResource("2_cfbwp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqtw8"]
+atlas = ExtResource("2_cfbwp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4fs0"]
+atlas = ExtResource("2_cfbwp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np1ca"]
+atlas = ExtResource("2_cfbwp")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ykjhm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3thrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqtw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4fs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np1ca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfbwp"]
 size = Vector2(60, 20)
@@ -47,6 +84,21 @@ _data = {
 &"float": SubResource("Animation_0urw1")
 }
 
+[sub_resource type="Curve" id="Curve_3thrn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a7es2"]
+curve = SubResource("Curve_3thrn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xqtw8"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 30, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_a7es2")
+color = Color(0.9084607, 0.93339807, 0, 0.5882353)
+
 [node name="RisingPlatform" type="AnimatableBody2D"]
 collision_layer = 36
 collision_mask = 0
@@ -58,10 +110,13 @@ position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_of8b0")
 one_way_collision = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.5882353)
 scale = Vector2(5, 5)
-texture = ExtResource("2_cfbwp")
+sprite_frames = SubResource("SpriteFrames_ykjhm")
+autoplay = "default"
+frame = 3
+frame_progress = 0.7243405
 
 [node name="RisingDetectArea" type="Area2D" parent="."]
 
@@ -75,6 +130,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_3thrn")
 }
 autoplay = "float"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 25)
+amount = 12
+texture = ExtResource("3_cfbwp")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_xqtw8")
 
 [connection signal="body_entered" from="RisingDetectArea" to="." method="_on_player_land"]
 [connection signal="body_exited" from="RisingDetectArea" to="." method="_on_player_leave"]
