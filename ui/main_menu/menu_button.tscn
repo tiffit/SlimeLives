@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcybrlr8bpb0w"]
+
+[ext_resource type="FontFile" uid="uid://dc7dxafyie71e" path="res://sprites/ComicRelief-Regular.ttf" id="1_me84b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_me84b"]
+content_margin_left = 15.0
+content_margin_top = 4.0
+content_margin_right = 15.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="MenuButton" type="Button"]
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_me84b")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_me84b")
+text = "Test Text"
