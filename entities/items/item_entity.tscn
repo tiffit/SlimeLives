@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpxmmifbiyp45"]
+[gd_scene load_steps=5 format=3 uid="uid://dpxmmifbiyp45"]
 
 [ext_resource type="Script" uid="uid://c38557dqlkv5m" path="res://entities/items/item_entity.gd" id="1_r7n1h"]
+[ext_resource type="AudioStream" uid="uid://cvhwchuanchpg" path="res://audio/sfx/bomb tick.wav" id="2_j6k2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nx852"]
 size = Vector2(46, 20)
@@ -28,9 +29,19 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource("RectangleShape2D_46sow")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="BombTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
+[node name="BombTickSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_j6k2i")
+bus = &"sfx"
+
+[node name="BombTickSoundTimer" type="Timer" parent="BombTickSound"]
+unique_name_in_owner = true
+
 [connection signal="body_entered" from="PickupArea" to="." method="_on_player_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BombTimer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="BombTickSound" to="." method="_on_bomb_tick_sound_finished"]
+[connection signal="timeout" from="BombTickSound/BombTickSoundTimer" to="." method="_on_bomb_tick_sound_timer_timeout"]

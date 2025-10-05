@@ -20,3 +20,6 @@ static func create_explosion(node: Node2D):
 					if tile_data:
 						if tile_data.has_custom_data("fragile") and tile_data.get_custom_data("fragile"):
 							child.erase_cell(int_tile_pos)
+		elif child is Character:
+			if !child.dead and child.position.distance_to(node.position) < explosion_radius*5*16:
+				child.kill_and_respawn(Character.KillReason.ENTITY)

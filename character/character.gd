@@ -4,6 +4,7 @@ class_name Character extends CharacterBody2D
 @export var jump_speed: float = 600.0
 @export var platform_scene: PackedScene
 @export var item_entity_scene: PackedScene
+@export var total_explode_time: float = 5
 
 @onready var slime_trail: GPUParticles2D = $SlimeTrail
 @onready var slime_idle: GPUParticles2D = $SlimeIdle
@@ -26,6 +27,7 @@ func _process(_delta: float) -> void:
 			var item_entity: ItemEntity = item_entity_scene.instantiate()
 			item_entity.item = item
 			item_entity.position = position
+			item_entity.total_explode_time = total_explode_time
 			add_sibling(item_entity)
 			var explode_time: float = 0
 			if !$BombTimer.is_stopped():
@@ -120,7 +122,9 @@ func pickup_item(item: Item):
 	if item:
 		$ItemSprite.texture = item.texture
 		if item.explode:
-			$BombTimer.start()
+			$BombTimer.start(total_explode_time)
+			%BombTickSound.pitch_scale = 1
+			%BombTickSound.play()
 		%PickUpItemSound.play()
 	else:
 		$ItemSprite.texture = null
@@ -131,3 +135,14 @@ func _on_bomb_timer_timeout() -> void:
 	particles.position = position
 	level.call_deferred("add_child", particles)
 	kill_and_respawn(Character.KillReason.ENTITY)
+
+func _on_bomb_tick_sound_finished() -> void:
+	if item and item.explode and !dead:
+		var time_left_percent = $BombTimer.time_left / total_explode_time
+		%BombTickSoundTimer.start(max(time_left_percent/2, 0.05))
+
+func _on_bomb_tick_sound_timer_timeout() -> void:
+	if item and item.explode and !dead:
+		var timer_progress = 1 - $BombTimer.time_left / total_explode_time
+		%BombTickSound.pitch_scale = 1 + timer_progress
+		%BombTickSound.play()
