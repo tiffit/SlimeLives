@@ -25,6 +25,10 @@ SaveHelper="*res://save/save_helper.gd"
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://d0v4hdtfd3wno"
 
+[global_group]
+
+activatable=""
+
 [input]
 
 move_left={
