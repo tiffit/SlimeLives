@@ -9,13 +9,13 @@
 
 var pickup_cooldown: float = 0
 var was_spit: bool = false
-const explosion_radius = 4
 
 func _ready() -> void:
 	update_render()
 	if item.animation:
 		var anim = item.animation.instantiate()
 		add_child(anim)
+		anim.name = "ItemAnimation"
 		anim.play("idle")
 
 func update_render():
@@ -24,10 +24,10 @@ func update_render():
 	else:
 		$ItemSprite.texture = null
 		
-func spit(character: Character):
+func spit(character: Character, explode_time: float = 0):
 	was_spit = true
 	if item.explode:
-		$Timer.start()
+		$Timer.start(explode_time)
 	pickup_cooldown = 0.2
 	$PickupArea.monitoring = false
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position() / get_viewport_rect().size
@@ -35,13 +35,15 @@ func spit(character: Character):
 	var angle: float = player_pos.angle_to_point(mouse_pos)
 	var launch_vector: Vector2 = Vector2(1.0, 0).rotated(angle)
 	call_deferred("apply_central_impulse", launch_vector * 1000)
-	
 		
 func _process(delta: float) -> void:
 	if !Engine.is_editor_hint():
 		pickup_cooldown = max(0, pickup_cooldown - delta)
 		if pickup_cooldown == 0:
 			$PickupArea.monitoring = true
+	if item and item.explode and has_node("ItemAnimation"):
+		if was_spit and !$Timer.is_stopped():
+			get_node("ItemAnimation").speed_scale = 2
 
 func _on_player_entered(body: Node2D) -> void:
 	if item and item.explode and was_spit:
@@ -54,15 +56,5 @@ func _on_player_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	if item.explode:
-		var item_tile_pos: Vector2 = position / 5 / 16
-		for child in get_parent().get_children():
-			if child is TileMapLayer:
-				for x in range(-explosion_radius, explosion_radius):
-					for y in range(-explosion_radius, explosion_radius):
-						var tile_pos: Vector2 = item_tile_pos + Vector2(x, y)
-						var int_tile_pos: Vector2i = Vector2i(tile_pos)
-						var tile_data: TileData = child.get_cell_tile_data(int_tile_pos)
-						if tile_data:
-							if tile_data.has_custom_data("fragile") and tile_data.get_custom_data("fragile"):
-								child.erase_cell(int_tile_pos)
+		Item.create_explosion(self)
 		queue_free()

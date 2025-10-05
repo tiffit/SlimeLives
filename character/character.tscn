@@ -394,6 +394,7 @@ item_entity_scene = ExtResource("3_qkjfd")
 
 [node name="Body" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.5882353)
+z_index = 5
 scale = Vector2(5, 4.545)
 sprite_frames = SubResource("SpriteFrames_hq3og")
 autoplay = "default"
@@ -425,6 +426,7 @@ lock_rotation = true
 
 [node name="Tail_Sprite" type="Sprite2D" parent="BodyParts/Tail"]
 modulate = Color(1, 1, 1, 0.5882353)
+z_index = 5
 position = Vector2(2, 0)
 scale = Vector2(5, 5)
 texture = ExtResource("3_dy06j")
@@ -442,6 +444,7 @@ lock_rotation = true
 
 [node name="Paws_Sprite" type="Sprite2D" parent="BodyParts/Paws"]
 modulate = Color(1, 1, 1, 0.5882353)
+z_index = 5
 scale = Vector2(4, 4)
 texture = ExtResource("8_wy5t8")
 
@@ -459,6 +462,7 @@ lock_rotation = true
 
 [node name="Face_Sprite" type="Sprite2D" parent="BodyParts/Face"]
 modulate = Color(1, 1, 1, 0.6862745)
+z_index = 5
 scale = Vector2(4, 4)
 texture = ExtResource("7_tgjim")
 
@@ -561,6 +565,11 @@ length = 6.0
 initial_offset = 5.0
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
-z_index = -1
+z_index = 4
 position = Vector2(3.9999998, 9.999999)
 scale = Vector2(0.2, 0.2)
+
+[node name="BombTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]

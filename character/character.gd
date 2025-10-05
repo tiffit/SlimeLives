@@ -25,7 +25,11 @@ func _process(_delta: float) -> void:
 			item_entity.item = item
 			item_entity.position = position
 			add_sibling(item_entity)
-			item_entity.spit(self)
+			var explode_time: float = 0
+			if !$BombTimer.is_stopped():
+				explode_time = $BombTimer.time_left
+				$BombTimer.stop()
+			item_entity.spit(self, explode_time)
 			pickup_item(null)
 		
 func _physics_process(delta: float) -> void:
@@ -101,5 +105,11 @@ func pickup_item(item: Item):
 	self.item = item
 	if item:
 		$ItemSprite.texture = item.texture
+		if item.explode:
+			$BombTimer.start()
 	else:
 		$ItemSprite.texture = null
+
+func _on_bomb_timer_timeout() -> void:
+	Item.create_explosion(self)
+	kill_and_respawn(Character.KillReason.ENTITY)
