@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c5gxdv8qm44mq"]
+[gd_scene load_steps=26 format=3 uid="uid://c5gxdv8qm44mq"]
 
 [ext_resource type="Script" uid="uid://cf7sweyu1ado0" path="res://character/character.gd" id="1_yf0e5"]
 [ext_resource type="PackedScene" uid="uid://voxgl40mko7a" path="res://platforms/platform.tscn" id="2_1l1n4"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dsde05vy6jkok" path="res://sprites/slime_ears.png" id="6_o6jyn"]
 [ext_resource type="Texture2D" uid="uid://b5s5ahtr3lkmn" path="res://sprites/slime_face.png" id="7_tgjim"]
 [ext_resource type="Texture2D" uid="uid://dsk6134a75vfr" path="res://sprites/slime_arms.png" id="8_wy5t8"]
+[ext_resource type="AudioStream" uid="uid://dk87gpaaecl4i" path="res://audio/sfx/death.wav" id="11_gx66j"]
+[ext_resource type="AudioStream" uid="uid://c775qortwasb5" path="res://audio/sfx/jump.wav" id="12_8brn5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx66j"]
 atlas = ExtResource("4_qkjfd")
@@ -571,5 +573,18 @@ scale = Vector2(0.2, 0.2)
 
 [node name="BombTimer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="SFX"]
+unique_name_in_owner = true
+stream = ExtResource("11_gx66j")
+bus = &"sfx"
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="SFX"]
+unique_name_in_owner = true
+stream = ExtResource("12_8brn5")
+max_polyphony = 5
+bus = &"sfx"
 
 [connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]

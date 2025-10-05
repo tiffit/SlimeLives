@@ -16,6 +16,7 @@ var level: Level
 var dead: bool = false
 var item: Item = null
 var external_velocity: Vector2 = Vector2()
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 enum KillReason { ENTITY, TILE, BOUNDS }
 
@@ -59,6 +60,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Jump
 	if is_on_floor() and Input.is_action_just_pressed("move_jump"):
+		%JumpSound.pitch_scale = rng.randf_range(0.8, 1.2)
+		%JumpSound.play()
 		velocity.y = -jump_speed
 	
 	velocity += external_velocity
@@ -81,6 +84,7 @@ func kill(reason: KillReason) -> void:
 		return
 	dead = true
 	if level:
+		%DeathSound.play()
 		level.vignette.flash_vignette()
 		if reason != KillReason.BOUNDS:
 			get_node("/root/GameMain").i_died.emit()

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelInfo" load_steps=15 format=3 uid="uid://r4hc1bpkd5e5"]
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=20 format=3 uid="uid://r4hc1bpkd5e5"]
 
 [ext_resource type="PackedScene" uid="uid://bgkjqy312t6v2" path="res://level/Forest_Levels/forest_1-1.tscn" id="1_2ttkn"]
 [ext_resource type="Script" uid="uid://bcjmhbod3nfm7" path="res://level/meta/level_info.gd" id="1_b4fff"]
@@ -12,12 +12,17 @@
 [ext_resource type="PackedScene" uid="uid://7o6ehfbjh1x3" path="res://level/Swamp_Levels/swamp_2-4.tscn" id="9_sqwlc"]
 [ext_resource type="PackedScene" uid="uid://j8jsu2f1v72y" path="res://level/Swamp_Levels/swamp_2-5.tscn" id="10_qbh71"]
 [ext_resource type="Texture2D" uid="uid://cp5hr0haae4bh" path="res://sprites/twisted_forest_bg.png" id="11_gd7e3"]
+[ext_resource type="PackedScene" uid="uid://cao4gg2an2x7w" path="res://level/Witch_Tower_Levels/tower_3-1.tscn" id="11_sqwlc"]
 [ext_resource type="Texture2D" uid="uid://baugcioefji7m" path="res://sprites/poison_swamp_bg.png" id="12_bim7u"]
+[ext_resource type="PackedScene" uid="uid://djuxawykdqsh5" path="res://level/Witch_Tower_Levels/tower_3-2.tscn" id="12_qbh71"]
 [ext_resource type="Texture2D" uid="uid://bvlbtkre0xfy5" path="res://sprites/witch tower bg.png" id="13_bim7u"]
+[ext_resource type="PackedScene" uid="uid://ds16mrnrudsyh" path="res://level/Witch_Tower_Levels/tower_3-3.tscn" id="13_xur1j"]
+[ext_resource type="PackedScene" uid="uid://ca67v05xhnwjs" path="res://level/Witch_Tower_Levels/tower_3-4.tscn" id="14_288wy"]
+[ext_resource type="PackedScene" uid="uid://fu80534e4026" path="res://level/Witch_Tower_Levels/tower_3-5.tscn" id="15_srugo"]
 
 [resource]
 script = ExtResource("1_b4fff")
-levels = Array[PackedScene]([ExtResource("1_2ttkn"), ExtResource("2_5h3dq"), ExtResource("3_gd7e3"), ExtResource("4_bim7u"), ExtResource("5_m3uny"), ExtResource("6_0iaxp"), ExtResource("7_prgnm"), ExtResource("8_p3p1y"), ExtResource("9_sqwlc"), ExtResource("10_qbh71")])
+levels = Array[PackedScene]([ExtResource("1_2ttkn"), ExtResource("2_5h3dq"), ExtResource("3_gd7e3"), ExtResource("4_bim7u"), ExtResource("5_m3uny"), ExtResource("6_0iaxp"), ExtResource("7_prgnm"), ExtResource("8_p3p1y"), ExtResource("9_sqwlc"), ExtResource("10_qbh71"), ExtResource("11_sqwlc"), ExtResource("12_qbh71"), ExtResource("13_xur1j"), ExtResource("14_288wy"), ExtResource("15_srugo")])
 region_bgs = Dictionary[int, Texture2D]({
 0: ExtResource("11_gd7e3"),
 1: ExtResource("12_bim7u"),
