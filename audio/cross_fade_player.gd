@@ -9,6 +9,16 @@ class_name CrossFadePlayer extends Node
 			get_node("Player1").stream = value
 		if has_node("Player2"):
 			get_node("Player2").stream = value
+			
+@export var pitch: float = 1:
+	get:
+		return pitch
+	set(value):
+		pitch = value
+		if has_node("Player1"):
+			get_node("Player1").pitch_scale = value
+		if has_node("Player2"):
+			get_node("Player2").pitch_scale = value
 		
 @export_range(0, 1) var fade_percent: float = 0.1
 

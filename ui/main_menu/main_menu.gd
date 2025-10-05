@@ -48,4 +48,5 @@ func _on_options_btn_pressed() -> void:
 func _on_reset_save_data_btn_pressed() -> void:
 	SaveHelper.data = SaveData.new()
 	SaveHelper.save_data()
+	Globals.next_level_index = -1
 	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")

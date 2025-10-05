@@ -5,6 +5,7 @@ class_name Character extends CharacterBody2D
 @export var platform_scene: PackedScene
 @export var item_entity_scene: PackedScene
 @export var total_explode_time: float = 5
+@export var death_menu_scene: PackedScene = preload("res://ui/death/death_screen.tscn")
 
 @onready var slime_trail: GPUParticles2D = $SlimeTrail
 @onready var slime_idle: GPUParticles2D = $SlimeIdle
@@ -98,6 +99,8 @@ func kill_and_respawn(reason: KillReason) -> void:
 		get_node("/root/GameMain/GameUI/UI").heart_icon.play_swing()
 		if level.lives >= 0:
 			level.respawn_character()
+		else:
+			get_node("/root/GameMain/GameUI").add_child(death_menu_scene.instantiate())
 
 func kill(reason: KillReason) -> void:
 	if dead:

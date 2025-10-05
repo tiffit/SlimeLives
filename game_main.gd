@@ -39,4 +39,5 @@ func load_next_level():
 	Globals.find_my_level.emit(current_level)
 	if current_level.level_name != previous_level_name:
 		$GameUI/UI.show_level_name(current_level.level_name)
+	MusicController.go_to_pitch(1, 0)
 	MusicController.play_music(level_info.region_music[current_level.level_region])
