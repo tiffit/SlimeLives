@@ -10,6 +10,11 @@ func _ready() -> void:
 	save_data()
 	is_ready = true
 	on_ready.emit()
+	
+	for bus_name in data.volume:
+		var bus_index: int = AudioServer.get_bus_index(bus_name)
+		var volume: float = data.volume[bus_name]
+		AudioServer.set_bus_volume_db(bus_index, linear_to_db(volume))
 
 func load_data() -> void:
 	if FileAccess.file_exists(save_path()):

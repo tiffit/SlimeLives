@@ -94,7 +94,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_w2r0d")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_6mijq")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_4e78x")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_s4pem")
-text = "Reset Save"
+text = "Reset All Data"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/LvlSelectBtn" to="." method="_on_lvl_select_btn_pressed"]

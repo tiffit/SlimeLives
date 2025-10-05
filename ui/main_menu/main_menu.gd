@@ -40,7 +40,6 @@ func _on_lvl_select_btn_pressed() -> void:
 	get_tree().change_scene_to_packed(level_select_scene)
 
 func _on_options_btn_pressed() -> void:
-	print("test")
 	var options: OptionsMenu = options_menu_scene.instantiate()
 	options.should_remove_on_close = true
 	add_child(options)

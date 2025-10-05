@@ -12,3 +12,5 @@ func _ready() -> void:
 
 func _on_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+	SaveHelper.data.volume[bus_name] = value
+	SaveHelper.save_data()
