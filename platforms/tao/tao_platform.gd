@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 		queue_free()
 		return
 		
-	angle += 30.0*delta
+	angle += 60.0*delta
 	
 	update_position()
 	
