@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://bsdwt2vlrfkic" path="res://item/item.gd" id="1_e1bds"]
 [ext_resource type="PackedScene" uid="uid://chg4vguq7bhvb" path="res://platforms/rising_platform.tscn" id="1_hnhlo"]
 [ext_resource type="PackedScene" uid="uid://26s3jp2mxkjw" path="res://entities/items/item_animations/crucifix_animation.tscn" id="1_uffai"]
-[ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="2_v7iyl"]
+[ext_resource type="Texture2D" uid="uid://cucklbuvyaew3" path="res://sprites/crucifix.png" id="4_fcdsh"]
 
 [resource]
 script = ExtResource("1_e1bds")
 item_name = "Crucifix"
-texture = ExtResource("2_v7iyl")
+texture = ExtResource("4_fcdsh")
 platform = ExtResource("1_hnhlo")
 animation = ExtResource("1_uffai")
 metadata/_custom_type_script = "uid://bsdwt2vlrfkic"

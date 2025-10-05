@@ -1,10 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://dse8kagi4qjk5"]
+[gd_scene load_steps=11 format=3 uid="uid://dse8kagi4qjk5"]
 
 [ext_resource type="Script" uid="uid://b1pshsjbqy0cc" path="res://platforms/tao/tao_anchor.gd" id="1_c6fk3"]
 [ext_resource type="PackedScene" uid="uid://dlgu3d4s3wjs8" path="res://platforms/tao/tao_platform.tscn" id="2_rn8ym"]
+[ext_resource type="Texture2D" uid="uid://cnpchsfrxajoe" path="res://sprites/circle_particle.png" id="3_iyhc5"]
+[ext_resource type="PackedScene" uid="uid://bth124uotyhpc" path="res://platforms/tao/tao_platform_black.tscn" id="3_rlwgk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6fk3"]
 size = Vector2(5, 5)
+
+[sub_resource type="Gradient" id="Gradient_rlwgk"]
+offsets = PackedFloat32Array(0.08064516, 0.87096775)
+colors = PackedColorArray(1, 1, 1, 1, 0.16129032, 0.16129032, 0.16129032, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3uk1e"]
+gradient = SubResource("Gradient_rlwgk")
+
+[sub_resource type="Curve" id="Curve_4o006"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.16414523), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_voeuf"]
+curve = SubResource("Curve_4o006")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hcwli"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector3(0, -150, 0)
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_voeuf")
+color = Color(0.39215687, 0.39215687, 0.39215687, 0.78431374)
+color_ramp = SubResource("GradientTexture1D_3uk1e")
 
 [node name="TaoAnchor" type="RigidBody2D"]
 collision_layer = 2
@@ -13,7 +40,13 @@ gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_c6fk3")
 platform_scene = ExtResource("2_rn8ym")
+platform_scene2 = ExtResource("3_rlwgk")
 metadata/_custom_type_script = "uid://b1pshsjbqy0cc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_c6fk3")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 5
+texture = ExtResource("3_iyhc5")
+process_material = SubResource("ParticleProcessMaterial_hcwli")
