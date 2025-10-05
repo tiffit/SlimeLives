@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c5gxdv8qm44mq"]
+[gd_scene load_steps=29 format=3 uid="uid://c5gxdv8qm44mq"]
 
 [ext_resource type="Script" uid="uid://cf7sweyu1ado0" path="res://character/character.gd" id="1_yf0e5"]
 [ext_resource type="PackedScene" uid="uid://voxgl40mko7a" path="res://platforms/platform.tscn" id="2_1l1n4"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://c775qortwasb5" path="res://audio/sfx/jump.wav" id="12_8brn5"]
 [ext_resource type="AudioStream" uid="uid://s2wuaaowmb4p" path="res://audio/sfx/spit.wav" id="13_b4qc5"]
 [ext_resource type="AudioStream" uid="uid://div13d20ah27k" path="res://audio/sfx/pick_up_item.wav" id="14_hd715"]
+[ext_resource type="PackedScene" uid="uid://dxb6pwtirkxvn" path="res://audio/CrossFadePlayer.tscn" id="15_hq3og"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx66j"]
 atlas = ExtResource("4_qkjfd")
@@ -601,5 +602,9 @@ stream = ExtResource("14_hd715")
 volume_db = -5.0
 max_polyphony = 5
 bus = &"sfx"
+
+[node name="WindSound" parent="SFX" instance=ExtResource("15_hq3og")]
+unique_name_in_owner = true
+fade_percent = 0.3
 
 [connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxb6pwtirkxvn"]
+
+[ext_resource type="Script" uid="uid://d1eux6bvkk5s4" path="res://audio/cross_fade_player.gd" id="1_lgrtx"]
+[ext_resource type="AudioStream" uid="uid://cfv3esqmjoemv" path="res://audio/sfx/wind.wav" id="2_on5vb"]
+
+[node name="CrossFadePlayer" type="Node"]
+script = ExtResource("1_lgrtx")
+stream = ExtResource("2_on5vb")
+
+[node name="Player1" type="AudioStreamPlayer" parent="."]
+
+[node name="Player2" type="AudioStreamPlayer" parent="."]

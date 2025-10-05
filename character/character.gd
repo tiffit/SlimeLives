@@ -66,6 +66,13 @@ func _physics_process(delta: float) -> void:
 		%JumpSound.play()
 		velocity.y = -jump_speed
 	
+	if %WindSound.playing:
+		if external_velocity.is_zero_approx():
+			%WindSound.stop()
+	else:
+		if !external_velocity.is_zero_approx():
+			%WindSound.play()
+		
 	velocity += external_velocity
 	external_velocity = Vector2()
 	

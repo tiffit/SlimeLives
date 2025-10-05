@@ -28,13 +28,13 @@ func _physics_process(delta: float) -> void:
 		push_vec = push_vec.rotated(rotation)
 		for body in get_overlapping_bodies():
 			if body is Character:
-				#push_vec /= Vector2(1, 5)
 				body.external_velocity = push_vec
 			elif body is Platform:
 				if body.affected_by_wind:
 					body.wind_velocity += push_vec
 			elif body is TaoAnchor:
 				body.wind_velocity += push_vec
+		
 
 func on_prop_changed():
 	if has_node("Shape") and has_node("Background"):
