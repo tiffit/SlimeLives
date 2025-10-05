@@ -70,8 +70,6 @@ position = Vector2(0, -30)
 shape = SubResource("RectangleShape2D_cfbwp")
 debug_color = Color(0.9684424, 0, 0.4709128, 0.41960785)
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_3thrn")

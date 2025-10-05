@@ -1,7 +1,7 @@
 class_name TaoAnchor extends RigidBody2D
 
 @export var platform_scene: PackedScene
-@export var platform_distance: float = 200.0
+@export var platform_distance: float = 150.0
 
 var platform1: TaoPlatform #left
 var platform2: TaoPlatform #right

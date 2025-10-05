@@ -17,7 +17,7 @@ size = Vector2(3519.25, 90.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhnfs"]
 size = Vector2(164.5, 30)
 
-[node name="Level" instance=ExtResource("1_c2ook")]
+[node name="Level2" instance=ExtResource("1_c2ook")]
 level_name = "2-3 The Tao of Meow"
 level_width = 300
 level_height = 65
@@ -33,44 +33,25 @@ tile_map_data = PackedByteArray("AAAQAAkAAAAAAAUAAAAPAAkAAAAAAAUAAAAOAAkAAAAAAAU
 [node name="Parallax_BG_2" parent="." index="3" instance=ExtResource("2_6cogi")]
 
 [node name="Wind" parent="." index="4" instance=ExtResource("10_lhnfs")]
-position = Vector2(1660, 350)
-size = Vector2(1000, 100)
-strength = 200.0
+position = Vector2(1500, 249)
+size = Vector2(3000, 500)
 
-[node name="Wind3" parent="." index="5" instance=ExtResource("10_lhnfs")]
-position = Vector2(1760, 650)
-rotation = 3.1415927
-size = Vector2(1000, 100)
-strength = 200.0
+[node name="Tao ItemEntity" parent="." index="5" instance=ExtResource("4_glvb1")]
+position = Vector2(264, 563)
 
-[node name="Wind2" parent="." index="6" instance=ExtResource("10_lhnfs")]
-position = Vector2(2210, 450)
-rotation = 1.5707964
-size = Vector2(300, 100)
-strength = 200.0
-
-[node name="Wind4" parent="." index="7" instance=ExtResource("10_lhnfs")]
-position = Vector2(1210, 550)
-rotation = -1.5707964
-size = Vector2(300, 100)
-strength = 200.0
-
-[node name="Tao ItemEntity" parent="." index="8" instance=ExtResource("4_glvb1")]
-position = Vector2(2983, 476)
-
-[node name="SpawnPoint" parent="." index="9" instance=ExtResource("5_lhnfs")]
+[node name="SpawnPoint" parent="." index="6" instance=ExtResource("5_lhnfs")]
 position = Vector2(70, 472)
 
-[node name="Checkpoint" parent="." index="10" instance=ExtResource("6_3qwfj")]
+[node name="Checkpoint" parent="." index="7" instance=ExtResource("6_3qwfj")]
 position = Vector2(1024, 346)
 
-[node name="Collectible" parent="." index="11" instance=ExtResource("7_k8pfo")]
+[node name="Collectible" parent="." index="8" instance=ExtResource("7_k8pfo")]
 position = Vector2(1692, 506)
 
-[node name="EndPoint" parent="." index="12" instance=ExtResource("8_jite2")]
+[node name="EndPoint" parent="." index="9" instance=ExtResource("8_jite2")]
 position = Vector2(4592, 511)
 
-[node name="DeathPlane" type="Node2D" parent="." index="13"]
+[node name="DeathPlane" type="Node2D" parent="." index="10"]
 script = ExtResource("9_f1j5y")
 metadata/_custom_type_script = "uid://cmxrkn8rph7j"
 
