@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://7o6ehfbjh1x3"]
+
+[ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_76rml"]
+[ext_resource type="PackedScene" uid="uid://b7jw3eq10ioia" path="res://level/Swamp_Levels/parallax_bg_2.tscn" id="2_t3067"]
+
+[node name="Level" instance=ExtResource("1_76rml")]
+level_name = "2-4 Updraft"
+
+[node name="Parallax_BG_2" parent="." index="2" instance=ExtResource("2_t3067")]
