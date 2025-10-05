@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmy5b3fvd02o5"]
+
+[ext_resource type="Texture2D" uid="uid://n6j162r8od55" path="res://sprites/sign_post.png" id="1_7ublm"]
+[ext_resource type="Texture2D" uid="uid://dk6sadj7dpsks" path="res://sprites/sign 9 patch.png" id="2_jp84b"]
+[ext_resource type="Texture2D" uid="uid://dgdq1m8xnwaai" path="res://sprites/slimelives_controls_restart.png" id="3_7ublm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp84b"]
+atlas = ExtResource("3_7ublm")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rkwl"]
+atlas = ExtResource("3_7ublm")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_246n4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp84b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rkwl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="restart_controls" type="Control"]
+z_index = -1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 31.0
+offset_right = 57.0
+offset_bottom = 63.0
+texture = ExtResource("1_7ublm")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 50.0
+texture = ExtResource("2_jp84b")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(50, 25)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_246n4")
+autoplay = "default"
+frame = 1
+frame_progress = 0.57318896

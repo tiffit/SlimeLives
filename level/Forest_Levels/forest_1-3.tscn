@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://chcfhjemsra56"]
+[gd_scene load_steps=14 format=4 uid="uid://chcfhjemsra56"]
 
 [ext_resource type="PackedScene" uid="uid://cgm53ymxlq3vc" path="res://level/level.tscn" id="1_4dnnh"]
 [ext_resource type="PackedScene" uid="uid://o30e61yppbfd" path="res://level/Forest_Levels/parallax_bg.tscn" id="2_3wji3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dx0nkt1qhhdbj" path="res://entities/level_objective/checkpoint.tscn" id="7_uusfm"]
 [ext_resource type="Script" uid="uid://cmxrkn8rph7j" path="res://entities/traps/death_plane.gd" id="8_rrbgt"]
 [ext_resource type="PackedScene" uid="uid://cm5i1i701d0vy" path="res://entities/level_objective/collectible.tscn" id="9_lxfu7"]
+[ext_resource type="PackedScene" uid="uid://dmy5b3fvd02o5" path="res://entities/Signs/restart_controls.tscn" id="10_yn5pf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrbgt"]
 size = Vector2(560.25, 30.5)
@@ -40,10 +41,10 @@ tile_map_data = PackedByteArray("AAAcAA8AAgABAAIAAAAcAA4AAgABAAIAAAAcAA0AAgABAAE
 position = Vector2(197, 906)
 
 [node name="EndPoint" parent="." index="5" instance=ExtResource("5_rrbgt")]
-position = Vector2(3564, 516)
+position = Vector2(3457, 391)
 
 [node name="Crucifix ItemEntity" parent="." index="6" instance=ExtResource("6_arc68")]
-position = Vector2(1125, 954)
+position = Vector2(1098, 965)
 metadata/_custom_type_script = "uid://c38557dqlkv5m"
 
 [node name="Checkpoint" parent="." index="7" instance=ExtResource("7_uusfm")]
@@ -85,3 +86,9 @@ shape = SubResource("RectangleShape2D_my4jk")
 
 [node name="Collectible" parent="." index="12" instance=ExtResource("9_lxfu7")]
 position = Vector2(678, 338)
+
+[node name="restart_controls" parent="." index="13" instance=ExtResource("10_yn5pf")]
+offset_left = 581.0
+offset_top = 594.0
+offset_right = 581.0
+offset_bottom = 594.0
