@@ -15,3 +15,4 @@ func _on_player_entered(body: Node2D) -> void:
 		if already_filled == false:
 			animated_sprite_2d.play("fill")
 			already_filled = true
+			%SFX.play()

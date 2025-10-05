@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dx0nkt1qhhdbj"]
+[gd_scene load_steps=22 format=3 uid="uid://dx0nkt1qhhdbj"]
 
 [ext_resource type="Script" uid="uid://cdacwj7qkrvti" path="res://entities/level_objective/checkpoint.gd" id="1_wpuaw"]
 [ext_resource type="PackedScene" uid="uid://c5gxdv8qm44mq" path="res://character/character.tscn" id="2_hjeaj"]
 [ext_resource type="Texture2D" uid="uid://cw5xaxloqvh4a" path="res://sprites/checkpoints static.png" id="3_vtkuy"]
 [ext_resource type="Texture2D" uid="uid://cba73i6owyijy" path="res://sprites/checkpoint anim.png" id="4_1fte3"]
+[ext_resource type="AudioStream" uid="uid://cm2lqul8jdupk" path="res://audio/sfx/checkpoint.wav" id="5_1fte3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x6hv2"]
 atlas = ExtResource("3_vtkuy")
@@ -163,5 +164,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_x6hv2")
 }
 autoplay = "pop"
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_1fte3")
+bus = &"sfx"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_player_entered"]
