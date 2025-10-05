@@ -5,7 +5,7 @@ class_name Item extends Resource
 @export var platform: PackedScene
 @export var explode: bool = false
 @export var animation: PackedScene
-
+@export var explosion: PackedScene
 const explosion_radius = 4
 
 static func create_explosion(node: Node2D):

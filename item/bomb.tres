@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cliqj4nhtnmeq"]
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://cliqj4nhtnmeq"]
 
 [ext_resource type="PackedScene" uid="uid://d276dsxbebim3" path="res://entities/items/item_animations/bomb_animation.tscn" id="1_71w5i"]
 [ext_resource type="PackedScene" uid="uid://voxgl40mko7a" path="res://platforms/platform.tscn" id="1_a6nss"]
 [ext_resource type="Script" uid="uid://bsdwt2vlrfkic" path="res://item/item.gd" id="2_71w5i"]
+[ext_resource type="PackedScene" uid="uid://bcpu36wcg5mid" path="res://entities/items/item_animations/explosion_particles.tscn" id="2_elgx4"]
 [ext_resource type="Texture2D" uid="uid://7l1m40wd18rk" path="res://sprites/pipe_bomb_real.png" id="2_tcu2y"]
 
 [resource]
@@ -12,4 +13,5 @@ texture = ExtResource("2_tcu2y")
 platform = ExtResource("1_a6nss")
 explode = true
 animation = ExtResource("1_71w5i")
+explosion = ExtResource("2_elgx4")
 metadata/_custom_type_script = "uid://bsdwt2vlrfkic"

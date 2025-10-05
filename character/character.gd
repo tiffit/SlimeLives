@@ -9,6 +9,7 @@ class_name Character extends CharacterBody2D
 @onready var slime_idle: GPUParticles2D = $SlimeIdle
 
 const DEATH_PARTICLES = preload("uid://57xvg0lh3one")
+const EXPLOSION_PARTICLES = preload("uid://bcpu36wcg5mid")
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var level: Level
@@ -112,4 +113,7 @@ func pickup_item(item: Item):
 
 func _on_bomb_timer_timeout() -> void:
 	Item.create_explosion(self)
+	var particles = EXPLOSION_PARTICLES.instantiate()
+	particles.position = position
+	level.call_deferred("add_child", particles)
 	kill_and_respawn(Character.KillReason.ENTITY)

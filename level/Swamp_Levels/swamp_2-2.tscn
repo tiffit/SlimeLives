@@ -22,6 +22,7 @@ size = Vector2(165, 30)
 
 [node name="Level" instance=ExtResource("1_d7sb6")]
 level_name = "2-2 Aero-die-nyamics"
+level_region = 1
 level_width = 314
 level_height = 70
 

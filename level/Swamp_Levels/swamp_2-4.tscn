@@ -39,6 +39,7 @@ size = Vector2(30, 165)
 
 [node name="Level" instance=ExtResource("1_76rml")]
 level_name = "2-4 The Cycle Goes On"
+level_region = 1
 level_width = 400
 level_height = 60
 
