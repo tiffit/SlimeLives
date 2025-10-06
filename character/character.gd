@@ -62,11 +62,16 @@ func _physics_process(delta: float) -> void:
 	# Horizontal movement
 	var horizontal: float = Input.get_axis("move_left", "move_right")
 	velocity.x = horizontal * speed
+	if horizontal != 0:
+		$Body.flip_h = horizontal < 0
 	
 	# Jump
+	var jumped: bool = false
 	if is_on_floor() and Input.is_action_just_pressed("move_jump"):
 		%JumpSound.pitch_scale = rng.randf_range(0.8, 1.2)
 		%JumpSound.play()
+		$Body.play("jump")
+		jumped = true
 		velocity.y = -jump_speed
 	
 	if %WindSound.playing:
@@ -83,10 +88,16 @@ func _physics_process(delta: float) -> void:
 		if velocity.x != 0:
 			if !%WalkSound.playing:
 				%WalkSound.play()
+			if !jumped:
+				$Body.play("walk")
 		else:
 			%WalkSound.stop()
+			if !jumped:
+				$Body.play("static")
 	else:
 		%WalkSound.stop()
+		if $Body.animation != "jump":
+			$Body.play("static")
 	
 	# Do movement physics
 	move_and_slide()

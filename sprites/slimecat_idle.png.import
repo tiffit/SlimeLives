@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxldb1jsmoedn"
-path="res://.godot/imported/slimecat_whole.png-dbc1f586eff31097ba6c189275388c06.ctex"
+path="res://.godot/imported/slimecat_idle.png-553986667fa95bbbb4e2cad3c916acfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/slimecat_whole.png"
-dest_files=["res://.godot/imported/slimecat_whole.png-dbc1f586eff31097ba6c189275388c06.ctex"]
+source_file="res://sprites/slimecat_idle.png"
+dest_files=["res://.godot/imported/slimecat_idle.png-553986667fa95bbbb4e2cad3c916acfc.ctex"]
 
 [params]
 
