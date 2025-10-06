@@ -11,6 +11,7 @@ func _ready() -> void:
 func _on_player_entered(body: Node2D) -> void:
 	if get_parent() is Level:
 		get_parent().got_collectible = true
+		get_tree().root.get_node("/root/GameMain/%FishBone").visible = true
 		$SFX.play()
 	
 	animation_player.play("spin")

@@ -11,6 +11,7 @@ var current_level: Level = null
 
 func _ready() -> void:
 	load_next_level()
+	%FishBoneAnim.play("up_and_down")
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset_level"):
@@ -19,6 +20,7 @@ func _process(delta: float) -> void:
 		load_next_level()
 
 func load_next_level():
+	%FishBone.visible = false
 	var previous_level_name: String = ""
 	if current_level:
 		previous_level_name = current_level.level_name
