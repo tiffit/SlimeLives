@@ -13,7 +13,9 @@ config_version=5
 config/name="Slime Lives"
 run/main_scene="uid://kbxavlb2upyw"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/use_filter=false
+boot_splash/image="uid://b8jnrfuxopv5v"
+config/icon="uid://b8iu57rnvm6hc"
 
 [audio]
 
