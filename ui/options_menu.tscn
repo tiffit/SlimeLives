@@ -96,3 +96,17 @@ text = "SFX Volume"
 [node name="sfx_volume" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer" instance=ExtResource("2_t1lix")]
 layout_mode = 2
 bus_name = "sfx"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+
+[node name="MainMenuButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_03u0o")
+text = "Main Menu"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer3/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

@@ -4,6 +4,7 @@ extends Node2D
 @export var game_main_scene: PackedScene
 @export var level_select_scene: PackedScene
 @export var level_info: LevelInfo
+@export var click_sound: AudioStream
 
 var next_level_index: int = 0
 var next_level_region: Level.LevelRegion = Level.LevelRegion.TWISTED_FOREST
@@ -43,10 +44,12 @@ func _on_lvl_select_btn_pressed() -> void:
 func _on_options_btn_pressed() -> void:
 	var options: OptionsMenu = options_menu_scene.instantiate()
 	options.should_remove_on_close = true
+	options.hide_main_menu_btn = true
 	add_child(options)
 
 func _on_reset_save_data_btn_pressed() -> void:
 	SaveHelper.data = SaveData.new()
 	SaveHelper.save_data()
 	Globals.next_level_index = -1
+	MusicController.play_one_shot(click_sound)
 	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
