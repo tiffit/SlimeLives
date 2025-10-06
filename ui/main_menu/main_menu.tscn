@@ -1,15 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://kbxavlb2upyw"]
+[gd_scene load_steps=18 format=3 uid="uid://kbxavlb2upyw"]
 
 [ext_resource type="Script" uid="uid://dtosb3b6nh0fc" path="res://ui/main_menu/main_menu.gd" id="1_i5wg5"]
 [ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="1_mu8pm"]
 [ext_resource type="PackedScene" uid="uid://cnstugsadrjtr" path="res://ui/options_menu.tscn" id="2_3c04x"]
-[ext_resource type="Texture2D" uid="uid://dxldb1jsmoedn" path="res://sprites/slimecat_whole.png" id="2_omy8q"]
 [ext_resource type="PackedScene" uid="uid://m7gbndc4ljw5" path="res://game_main.tscn" id="3_joh67"]
 [ext_resource type="PackedScene" uid="uid://bcybrlr8bpb0w" path="res://ui/main_menu/menu_button.tscn" id="3_omy8q"]
 [ext_resource type="Resource" uid="uid://r4hc1bpkd5e5" path="res://level/meta/level_info.tres" id="4_u184e"]
 [ext_resource type="PackedScene" uid="uid://blxid2eq3l7ek" path="res://ui/main_menu/level_select/level_select.tscn" id="4_w2r0d"]
 [ext_resource type="AudioStream" uid="uid://blkm861cl5nd8" path="res://audio/sfx/explosion.wav" id="6_4e78x"]
+[ext_resource type="AudioStream" uid="uid://5m1pdq7uxr7e" path="res://audio/sfx/meow.wav" id="7_s4pem"]
 [ext_resource type="FontFile" uid="uid://dc7dxafyie71e" path="res://sprites/ComicRelief-Regular.ttf" id="8_6mijq"]
+[ext_resource type="Texture2D" uid="uid://bvjig5argw0s8" path="res://sprites/Cat_Slime_Body.png" id="9_s4pem"]
+[ext_resource type="Texture2D" uid="uid://dmchiw06ydda4" path="res://sprites/Cat_Slime_Smile.png" id="10_xio0d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u184e"]
 
@@ -21,13 +23,16 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s4pem"]
 
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_i5wg5")
 options_menu_scene = ExtResource("2_3c04x")
 game_main_scene = ExtResource("3_joh67")
 level_select_scene = ExtResource("4_w2r0d")
 level_info = ExtResource("4_u184e")
 click_sound = ExtResource("6_4e78x")
+meow_sound = ExtResource("7_s4pem")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -46,13 +51,29 @@ offset_right = 351.0
 offset_bottom = 310.0
 texture = ExtResource("1_mu8pm")
 
-[node name="Sime" type="TextureRect" parent="CanvasLayer"]
+[node name="Slime" type="TextureRect" parent="CanvasLayer"]
 offset_left = 352.0
 offset_top = 246.0
 offset_right = 629.0
 offset_bottom = 523.0
-texture = ExtResource("2_omy8q")
+texture = ExtResource("9_s4pem")
 stretch_mode = 4
+
+[node name="SlimeFace" type="TextureRect" parent="CanvasLayer/Slime"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -58.5
+offset_right = 55.5
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_xio0d")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 6
@@ -110,6 +131,7 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("8_6mijq")
 text = "Made by: Tiffit, Marshmalla, IDGAW"
 
+[connection signal="gui_input" from="CanvasLayer/Slime" to="." method="_on_slime_gui_input"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/LvlSelectBtn" to="." method="_on_lvl_select_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
