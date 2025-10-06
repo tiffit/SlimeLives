@@ -9,6 +9,7 @@ var pitch_dest_delta = 0
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	player = cross_fade_player_scene.instantiate()
+	player.fade_percent = 0.01
 	add_child(player)
 	player.get_node("Player1").bus = &"music"
 	player.get_node("Player2").bus = &"music"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelInfo" load_steps=22 format=3 uid="uid://r4hc1bpkd5e5"]
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=23 format=3 uid="uid://r4hc1bpkd5e5"]
 
 [ext_resource type="PackedScene" uid="uid://bgkjqy312t6v2" path="res://level/Forest_Levels/forest_1-1.tscn" id="1_2ttkn"]
 [ext_resource type="Script" uid="uid://bcjmhbod3nfm7" path="res://level/meta/level_info.gd" id="1_b4fff"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://fu80534e4026" path="res://level/Witch_Tower_Levels/tower_3-5.tscn" id="15_srugo"]
 [ext_resource type="AudioStream" uid="uid://bj24i6r70phh5" path="res://audio/music/twisted forest.wav" id="19_xur1j"]
 [ext_resource type="AudioStream" uid="uid://b5rwjjthrve1b" path="res://audio/music/poison swamp.wav" id="20_288wy"]
+[ext_resource type="AudioStream" uid="uid://4swxeh5tloj3" path="res://audio/music/witch tower.wav" id="21_288wy"]
 
 [resource]
 script = ExtResource("1_b4fff")
@@ -33,6 +34,6 @@ region_bgs = Dictionary[int, Texture2D]({
 region_music = Dictionary[int, AudioStream]({
 0: ExtResource("19_xur1j"),
 1: ExtResource("20_288wy"),
-2: null
+2: ExtResource("21_288wy")
 })
 metadata/_custom_type_script = "uid://bcjmhbod3nfm7"
