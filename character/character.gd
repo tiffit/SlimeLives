@@ -120,6 +120,8 @@ func kill(reason: KillReason) -> void:
 	if level:
 		%DeathSound.play()
 		level.vignette.flash_vignette()
+		SaveHelper.data.death_count += 1
+		SaveHelper.save_data()
 		if reason != KillReason.BOUNDS:
 			get_node("/root/GameMain").i_died.emit()
 			$AnimationPlayer.play("death")

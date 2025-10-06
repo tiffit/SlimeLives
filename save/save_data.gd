@@ -8,3 +8,4 @@ class_name SaveData extends Resource
 "sfx": 1
 }
 @export var comic_seen: bool = false
+@export var death_count: int = 0

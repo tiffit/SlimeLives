@@ -32,7 +32,8 @@ func load_next_level():
 		Globals.next_level_index = -1
 	
 	if level_index >= level_info.levels.size():
-		level_index = 0
+		get_tree().change_scene_to_file("res://ui/win/win_screen.tscn")
+		return
 		
 	var next_level_scene: PackedScene = force_level if force_level else level_info.levels[level_index]
 	current_level = next_level_scene.instantiate()
