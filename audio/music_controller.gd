@@ -34,3 +34,11 @@ func go_to_pitch(value: float, time: float):
 		return
 	pitch_dest = value
 	pitch_dest_delta = (pitch_dest - player.pitch) / time
+	
+func play_one_shot(sound: AudioStream):
+	var player: AudioStreamPlayer = AudioStreamPlayer.new()
+	player.stream = sound
+	player.bus = &"sfx"
+	player.finished.connect(func(): player.queue_free())
+	add_child(player)
+	player.play()

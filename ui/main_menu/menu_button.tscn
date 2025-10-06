@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcybrlr8bpb0w"]
+[gd_scene load_steps=5 format=3 uid="uid://bcybrlr8bpb0w"]
 
 [ext_resource type="FontFile" uid="uid://dc7dxafyie71e" path="res://sprites/ComicRelief-Regular.ttf" id="1_me84b"]
+[ext_resource type="Script" uid="uid://vyv4fj3gc50m" path="res://ui/main_menu/menu_button.gd" id="2_p4hi6"]
+[ext_resource type="AudioStream" uid="uid://vc52b0e7gqqj" path="res://audio/sfx/click.wav" id="3_2dnaq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_me84b"]
 content_margin_left = 15.0
@@ -20,3 +22,7 @@ theme_override_fonts/font = ExtResource("1_me84b")
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_me84b")
 text = "Test Text"
+script = ExtResource("2_p4hi6")
+click_sound = ExtResource("3_2dnaq")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

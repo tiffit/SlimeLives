@@ -17,6 +17,21 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
+[sub_resource type="Animation" id="Animation_tf0e0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_vkava"]
 resource_name = "swing"
 length = 3.0
@@ -32,21 +47,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.03490658503988659, -0.03490658503988659]
-}
-
-[sub_resource type="Animation" id="Animation_tf0e0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_obcwv"]
@@ -66,16 +66,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m6e0p")
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1068.0
-offset_top = 45.0
-offset_right = 1118.0
-offset_bottom = 98.0
-focus_mode = 0
-theme_override_font_sizes/font_size = 32
-text = "[][]"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -143,5 +133,3 @@ theme_override_fonts/font = ExtResource("2_27fn8")
 theme_override_font_sizes/font_size = 40
 text = "INSERT LEVEL NAME HERE"
 vertical_alignment = 1
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
