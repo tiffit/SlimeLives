@@ -1,6 +1,6 @@
 class_name EndPoint extends Entity
 
-
+@export var capture_sound: AudioStream
 var game_main: GameMain
 
 func _ready() -> void:
@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 func _on_player_entered(body: Node2D) -> void:
 	if body is Character:
 		body.process_mode = PROCESS_MODE_DISABLED
+		MusicController.play_one_shot(capture_sound)
 		var tweener: MethodTweener = game_main.current_level.play_circle(true)
 		if tweener:
 			await tweener.finished
