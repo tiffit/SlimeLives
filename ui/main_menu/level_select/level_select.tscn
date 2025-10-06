@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://blxid2eq3l7ek"]
+[gd_scene load_steps=9 format=3 uid="uid://blxid2eq3l7ek"]
 
 [ext_resource type="FontFile" uid="uid://dc7dxafyie71e" path="res://sprites/ComicRelief-Regular.ttf" id="1_2jn78"]
 [ext_resource type="Script" uid="uid://sqkgg0buo08i" path="res://ui/main_menu/level_select/level_select.gd" id="1_g1e4q"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://br00wk78vx0fq" path="res://ui/main_menu/level_select/select_level_button.tscn" id="3_mtk3m"]
 [ext_resource type="PackedScene" uid="uid://m7gbndc4ljw5" path="res://game_main.tscn" id="4_d4iee"]
 [ext_resource type="Texture2D" uid="uid://5xsdkdljfjvm" path="res://sprites/fish bone blank.png" id="5_kcff3"]
+[ext_resource type="AudioStream" uid="uid://vc52b0e7gqqj" path="res://audio/sfx/click.wav" id="7_85mx7"]
 [ext_resource type="PackedScene" uid="uid://dsv1u05ardgw3" path="res://ui/main_menu/level_select/region_label.tscn" id="7_cwm4p"]
 
 [node name="LevelSelect" type="Node2D"]
@@ -14,6 +15,7 @@ level_select_button_scene = ExtResource("3_mtk3m")
 level_info = ExtResource("3_4m5hy")
 game_main_scene = ExtResource("4_d4iee")
 blank_collectible = ExtResource("5_kcff3")
+click_sound = ExtResource("7_85mx7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
