@@ -2,4 +2,8 @@ class_name SaveData extends Resource
 
 @export var collected: Array[String] = []
 @export var completed: Array[String] = []
-@export var volume: Dictionary[String, float] = {}
+@export var volume: Dictionary[String, float] = {
+"Master": 0.4,
+"music": 1,
+"sfx": 1
+}

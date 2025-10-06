@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm5i1i701d0vy"]
+[gd_scene load_steps=9 format=3 uid="uid://cm5i1i701d0vy"]
 
 [ext_resource type="Script" uid="uid://b5fjkhx10btry" path="res://entities/level_objective/collectible.gd" id="1_y1c0e"]
 [ext_resource type="Texture2D" uid="uid://b4y0tri78ij37" path="res://sprites/fish bone.png" id="2_d7qb4"]
+[ext_resource type="AudioStream" uid="uid://5m1pdq7uxr7e" path="res://audio/sfx/meow.wav" id="3_s44ho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjeaj"]
 size = Vector2(16.2, 16)
@@ -131,5 +132,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_filqt")
 }
 autoplay = "swingn"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s44ho")
+pitch_scale = 2.0
+bus = &"sfx"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_player_entered"]
