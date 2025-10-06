@@ -1,7 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://kbxavlb2upyw"]
 
 [ext_resource type="Script" uid="uid://dtosb3b6nh0fc" path="res://ui/main_menu/main_menu.gd" id="1_i5wg5"]
-[ext_resource type="Texture2D" uid="uid://fq22cbvv2412" path="res://icon.svg" id="1_mu8pm"]
 [ext_resource type="PackedScene" uid="uid://cnstugsadrjtr" path="res://ui/options_menu.tscn" id="2_3c04x"]
 [ext_resource type="PackedScene" uid="uid://m7gbndc4ljw5" path="res://game_main.tscn" id="3_joh67"]
 [ext_resource type="PackedScene" uid="uid://bcybrlr8bpb0w" path="res://ui/main_menu/menu_button.tscn" id="3_omy8q"]
@@ -10,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://blkm861cl5nd8" path="res://audio/sfx/explosion.wav" id="6_4e78x"]
 [ext_resource type="AudioStream" uid="uid://5m1pdq7uxr7e" path="res://audio/sfx/meow.wav" id="7_s4pem"]
 [ext_resource type="FontFile" uid="uid://dc7dxafyie71e" path="res://sprites/ComicRelief-Regular.ttf" id="8_6mijq"]
+[ext_resource type="Texture2D" uid="uid://b8jnrfuxopv5v" path="res://sprites/slimelives_logo.png" id="8_xio0d"]
 [ext_resource type="Texture2D" uid="uid://bvjig5argw0s8" path="res://sprites/Cat_Slime_Body.png" id="9_s4pem"]
 [ext_resource type="Texture2D" uid="uid://dmchiw06ydda4" path="res://sprites/Cat_Slime_Smile.png" id="10_xio0d"]
 
@@ -45,11 +45,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Logo" type="TextureRect" parent="CanvasLayer"]
-offset_left = 80.0
-offset_top = 39.0
-offset_right = 351.0
-offset_bottom = 310.0
-texture = ExtResource("1_mu8pm")
+offset_left = -53.0
+offset_top = 97.00001
+offset_right = 475.0
+offset_bottom = 369.0
+rotation = -0.24608597
+texture = ExtResource("8_xio0d")
 
 [node name="Slime" type="TextureRect" parent="CanvasLayer"]
 offset_left = 352.0

@@ -18,6 +18,7 @@ corner_detail = 5
 
 [node name="MenuButton" type="Button"]
 focus_mode = 0
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("1_me84b")
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_me84b")
