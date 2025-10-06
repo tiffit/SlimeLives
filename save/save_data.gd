@@ -7,3 +7,4 @@ class_name SaveData extends Resource
 "music": 1,
 "sfx": 1
 }
+@export var comic_seen: bool = false

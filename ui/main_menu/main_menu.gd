@@ -8,6 +8,7 @@ extends Node2D
 
 var next_level_index: int = 0
 var next_level_region: Level.LevelRegion = Level.LevelRegion.TWISTED_FOREST
+var seen_intro_comic: bool
 
 func _ready() -> void:
 	if(SaveHelper.is_ready):
@@ -33,8 +34,12 @@ func load_save_data():
 		Globals.next_level_index = next_level_index
 	%Background.texture = level_info.region_bgs[next_level_region]
 	MusicController.play_music(level_info.region_music[next_level_region])
+	seen_intro_comic = data.comic_seen
 
 func _on_play_btn_pressed() -> void:
+	if !seen_intro_comic:
+		get_tree().change_scene_to_file("res://ui/comic/Comic.tscn")
+		return
 	get_tree().change_scene_to_packed(game_main_scene)
 
 func _on_lvl_select_btn_pressed() -> void:

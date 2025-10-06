@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7763yodum6n3"]
+
+[ext_resource type="Script" uid="uid://bc60xvgyhlref" path="res://ui/comic/comic.gd" id="1_4o0px"]
+[ext_resource type="Texture2D" uid="uid://c7lw0sxaif0qe" path="res://sprites/tao.png" id="2_lea8w"]
+[ext_resource type="Texture2D" uid="uid://cucklbuvyaew3" path="res://sprites/crucifix.png" id="3_xf3oq"]
+[ext_resource type="AudioStream" uid="uid://druke30sr3loi" path="res://audio/music/comic music.wav" id="4_xf3oq"]
+
+[node name="Comic" type="Node2D"]
+script = ExtResource("1_4o0px")
+panels = Array[Texture2D]([ExtResource("2_lea8w"), ExtResource("3_xf3oq")])
+song = ExtResource("4_xf3oq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ComicRect" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
