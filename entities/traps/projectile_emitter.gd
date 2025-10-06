@@ -52,6 +52,7 @@ func _on_timer_timeout() -> void:
 		projectile.lifetime = projLifetime
 		projectile.level = level
 		level.call_deferred("add_child", projectile)
+		$ShootSound.play()
 		#add_child(projectile)
 
 func on_level_find(piss: Level) -> void:

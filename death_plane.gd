@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 		position -= direction * speed * delta
 
 func _on_timer_timeout() -> void:
+	$LandSound.play()
 	dead = true
 	hitbox.disabled = true
 	animation_player.play("dead")

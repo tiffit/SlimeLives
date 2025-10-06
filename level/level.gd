@@ -18,7 +18,7 @@ var level_bounds: Rect2 = Rect2()
 var circle_transition: CircleTransition
 var vignette: Vignette
 var current_spawn: Spawnable = null
-var lives = 9
+var lives = 1
 var got_collectible: bool = false
 
 func _ready() -> void:

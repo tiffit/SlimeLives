@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmnwrofkpfdbv"]
+[gd_scene load_steps=10 format=3 uid="uid://bmnwrofkpfdbv"]
 
 [ext_resource type="Script" uid="uid://r0k5a1q8hvlw" path="res://death_plane.gd" id="1_y637f"]
 [ext_resource type="Texture2D" uid="uid://ckjjabdhvy0gu" path="res://sprites/arrow_placeholder.png" id="2_e61yj"]
 [ext_resource type="Script" uid="uid://cmxrkn8rph7j" path="res://entities/traps/death_plane.gd" id="3_7lbh7"]
 [ext_resource type="PackedScene" uid="uid://b3upj2e2pwkbv" path="res://entities/traps/projectile_hit_particles.tscn" id="4_7lbh7"]
+[ext_resource type="AudioStream" uid="uid://h15kjqopspw2" path="res://audio/sfx/arrow hit.wav" id="5_iwbbq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iwbbq"]
 radius = 7.0
@@ -78,5 +79,9 @@ libraries = {
 
 [node name="ParticleSpawn" type="Node2D" parent="."]
 position = Vector2(2.1855694e-06, -50)
+
+[node name="LandSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_iwbbq")
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
