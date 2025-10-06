@@ -96,6 +96,18 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_4e78x")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_s4pem")
 text = "Reset All Data"
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -27.0
+offset_right = 282.0
+offset_bottom = -4.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("8_6mijq")
+text = "Made by: Tiffit, Marshmalla, IDGAW"
+
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/LvlSelectBtn" to="." method="_on_lvl_select_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
